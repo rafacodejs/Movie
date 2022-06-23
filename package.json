@@ -1,0 +1,24 @@
+{
+  "name": "moviewebsiteapi",
+  "version": "1.0.0",
+  "description": "Movie website built in HTML, CSS AND JS VANILLA, using TheMovieDB API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafacodejs/MovieWebSiteAPI.git"
+  },
+  "keywords": [
+    "Movie",
+    "WebsiteMovie",
+    "TheMovieDB"
+  ],
+  "author": "Rafael <rafacodejs@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rafacodejs/MovieWebSiteAPI/issues"
+  },
+  "homepage": "https://github.com/rafacodejs/MovieWebSiteAPI#readme"
+}
