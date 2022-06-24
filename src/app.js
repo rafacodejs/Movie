@@ -12,7 +12,6 @@ const slider = document.querySelector('.slider');
 const nextBtn = document.querySelector('.next-btn');
 const prevBtn = document.querySelector('.prev-btn');
 const slides = document.querySelectorAll('.slide');
-//const slideIcons = document.querySelectorAll('.slide-icon');
 const numberOfSlides = slides.length;
 var slideNumber = 0;
 
@@ -31,7 +30,7 @@ cancelBtn.addEventListener('click', () => {
 	searchBtn.classList.remove('hide');
 	cancelBtn.classList.remove('show');
 	form.classList.remove('active');
-	cancelBtn.style.color = '#3381ed';
+	cancelBtn.style.color = '#783ce3';
 });
 searchBtn.addEventListener('click', () => {
 	form.classList.add('active');
@@ -42,10 +41,7 @@ searchBtn.addEventListener('click', () => {
 //image slider next button
 nextBtn.addEventListener('click', () => {
 	slides.forEach((slide) => {
-		slide.classList.remove('active');
-	});
-	slideIcons.forEach((slideIcon) => {
-		slideIcon.classList.remove('active');
+		slide.classList.remove('active-slide');
 	});
 
 	slideNumber++;
@@ -54,8 +50,7 @@ nextBtn.addEventListener('click', () => {
 		slideNumber = 0;
 	}
 
-	slides[slideNumber].classList.add('active');
-	slideIcons[slideNumber].classList.add('active');
+	slides[slideNumber].classList.add('active-slide');
 });
 
 //image slider previous button
@@ -118,3 +113,18 @@ slider.addEventListener('mouseover', () => {
 slider.addEventListener('mouseout', () => {
 	repeater();
 });
+
+function carruselPrev(num) {
+	if (prev.item(num)) {
+		carrusel.item(num).scrollLeft -= 850;
+	} else {
+		carrusel.scrollLeft = 0;
+	}
+}
+function carruselNext(num) {
+	if (prev.item(num)) {
+		carrusel.item(num).scrollLeft += 850;
+	} else {
+		carrusel.scrollLeft = 0;
+	}
+}

@@ -136,6 +136,7 @@ body {
 	font-size: 100%;
 	font-family: Poppins, sans-serif;
 	color: #000;
+	overflow-x: hidden;
 	/* opcional */
 	line-height: 1.4rem;
 	/* opcional */
