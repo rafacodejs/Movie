@@ -7,6 +7,7 @@ async function getTrendingPreviewSlider() {
 	const data = await res.json();
 
 	const movies = data.results;
+
 	movies.forEach((movie) => {
 		const trendingPreviewMovieContainer =
 			document.querySelector('#slider-container');
@@ -41,52 +42,129 @@ getTrendingPreviewSlider();
 
 async function getTrendingPreview() {
 	const res = await fetch(
-		`https://api.themoviedb.org/3/trending/week/day?api_key=${API_KEY}`
+		`https://api.themoviedb.org/3/trending/all/week?api_key=${API_KEY}`
 	);
 	const data = await res.json();
 
 	const movies = data.results;
-	console.log(movies);
 	movies.forEach((movie) => {
-
 		const trendingPreviewContainer = document.querySelector(
 			'#trendingPreview .trendingPreview-List'
 		);
 
-		const previewContainer = document.createElement('div');
+		const previewContainerList = document.createElement('div');
+		const previewContainerListImg = document.createElement('img');
 		const previewContainerInfo = document.createElement('div');
-		const previewImg = document.createElement('img');
-		const previewContainerInfoTitle = document.createElement('h5');
-		const previewContainerInfoDescription = document.createElement('p');
+		const previewContainerInfoTitle = document.createElement('h4');
+		const previewContainerInfoDetails = document.createElement('div');
+		const previewContainerInfoYear = document.createElement('p');
+		// const previewContainerInfoGenre = document.createElement('p');
+		const previewContainerRated = document.createElement('div');
+		const previewContainerStar = document.createElement('i');
+		const previewContainerVoted = document.createElement('p');
+		const previewContainerButton = document.createElement('button');
+		const previewContainerLink = document.createElement('a');
 
-		previewContainer.classList.add('trend-grid-container');
+		previewContainerList.classList.add('trend-grid-container');
+		previewContainerListImg.classList.add('trend-img');
 		previewContainerInfo.classList.add('trend-info');
-		previewImg.classList.add('trend-img');
-		previewImg.setAttribute('alt', movie.title);
-		previewImg.setAttribute(
+		previewContainerInfoDetails.classList.add('details');
+		previewContainerInfoYear.classList.add('year');
+		// previewContainerInfoGenre.classList.add('genres');
+		previewContainerRated.classList.add('rated');
+		previewContainerStar.classList.add('bx', 'bxs-star');
+		previewContainerVoted.classList.add('voted');
+		previewContainerButton.classList.add('button');
+
+		previewContainerListImg.setAttribute('alt', movie.title);
+		previewContainerListImg.setAttribute(
 			'src',
 			`https://image.tmdb.org/t/p/w500${movie.poster_path}`
 		);
 
+		previewContainerLink.href = movie.id;
 		previewContainerInfoTitle.textContent = movie.title || movie.original_name;
-		previewContainerInfoDescription.textContent = movie.vote_average;
 
+		// FIND YEAR
+		const releaseDate = movie.release_date || movie.first_air_date;
+		const releaseDateYear = releaseDate.split('-');
+		previewContainerInfoYear.textContent = releaseDateYear[0];
+
+		// previewContainerInfoGenre.textContent = movie.genre_ids;
+		previewContainerVoted.textContent = movie.vote_average;
+		previewContainerButton.textContent = 'Watch Now';
+
+		// DETAILS
+
+		previewContainerRated.appendChild(previewContainerStar);
+		previewContainerRated.appendChild(previewContainerVoted);
+		previewContainerInfoDetails.appendChild(previewContainerInfoYear);
+		// previewContainerInfoDetails.appendChild(previewContainerInfoGenre);
+
+		//INFO
 		previewContainerInfo.appendChild(previewContainerInfoTitle);
-		previewContainerInfo.appendChild(previewContainerInfoDescription);
-		previewContainer.appendChild(previewImg);
-		previewContainer.appendChild(previewContainerInfo);
-		trendingPreviewContainer.appendChild(previewContainer);
+		previewContainerInfo.appendChild(previewContainerInfoDetails);
+		previewContainerInfo.appendChild(previewContainerRated);
 
-		/*movieContainer.classList.add('movie-container');
+		// BOTÓN
+		previewContainerButton.appendChild(previewContainerLink);
+		previewContainerInfo.appendChild(previewContainerButton);
+
+		// GRID
+		previewContainerList.appendChild(previewContainerListImg);
+		previewContainerList.appendChild(previewContainerInfo);
+
+		trendingPreviewContainer.appendChild(previewContainerList);
+	});
+}
+getTrendingPreview();
+
+async function getTrendingPreviewMovies() {
+	const res = await fetch(
+		`https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`
+	);
+	const data = await res.json();
+
+	const movies = data.results;
+	movies.forEach((movie) => {
+		const trendingPreviewMovieContainer = document.querySelector(
+			'#carrusel .movie-container'
+		);
+
 		const movieImg = document.createElement('img');
 		movieImg.classList.add('movie-img');
+
 		movieImg.setAttribute('alt', movie.title);
 		movieImg.setAttribute(
 			'src',
 			`https://image.tmdb.org/t/p/w300${movie.poster_path}`
 		);
-		movieContainer.appendChild(movieImg);
-		trendingPreviewMovieContainer.appendChild(movieContainer);*/
+		trendingPreviewMovieContainer.appendChild(movieImg);
 	});
 }
-getTrendingPreview();
+getTrendingPreviewMovies();
+
+async function getTrendingPreviewSeries() {
+	const res = await fetch(
+		`https://api.themoviedb.org/3/trending/tv/day?api_key=${API_KEY}`
+	);
+	const data = await res.json();
+
+	const series = data.results;
+	series.forEach((serie) => {
+		const trendingPreviewSerieContainer = document.querySelector(
+			'#carrusel .serie-container'
+		);
+
+		const serieImg = document.createElement('img');
+		serieImg.classList.add('serie-img');
+
+		serieImg.setAttribute('alt', serie.title);
+		serieImg.setAttribute(
+			'src',
+			`https://image.tmdb.org/t/p/w300${serie.poster_path}`
+		);
+		trendingPreviewSerieContainer.appendChild(serieImg);
+	});
+}
+getTrendingPreviewSeries();

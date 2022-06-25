@@ -11,7 +11,7 @@
 		/>
 		<meta
 			name="keywords"
-			content="Movies, T Series, website movie, películas, streaming"
+			content="Movies, TV Series, website movie, películas, streaming"
 		/>
 
 		<link rel="stylesheet" href="/css/style.css" />
@@ -21,7 +21,7 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap"
 			rel="stylesheet"
 		/>
 		<link
@@ -102,17 +102,75 @@
 						></span>
 					</div>
 				</div>
+
 				<article class="trendingPreview-List" id="carrusel">
-					<!--	<div class="trend-grid-container">
-						<img class="trend-img"
+					<!--<div class="trend-grid-container">
+						<img
+							class="trend-img"
 							src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
 							alt=""
 						/>
 						<div class="trend-info">
-							<h5>Titulo</h5>
-							<p>Lorem ipsum dolor sit amet</p>
+							<h4>Titulo</h4>
+							<div class="details">
+								<p class="year">2022</p>
+								<p class="genres">Acción</p>
+							</div>
+							<div class="rated">
+								<p class="voted">7.5</p>
+								<i class="bx bxs-star"></i>
+								<i class="bx bxs-star"></i>
+								<i class="bx bxs-star"></i>
+								<i class="bx bxs-star"></i>
+								<i class="bx bxs-star"></i>
+							</div>
+							<button type="button"><a href="">Watch Now</a></button>
 						</div>
 					</div>-->
+				</article>
+				<div class="trend-container trend-container-movie">
+					<div class="trend-title">
+						<h1>Movie🎥</h1>
+					</div>
+					<div class="control-carrusel">
+						<span href="#" class="prev" onclick="carruselPrev(1)">
+							<i class="bx bx-chevron-left arrow-prev"></i>
+						</span>
+						<span href="#" class="next" onclick="carruselNext(1)"
+							><i class="bx bx-chevron-right arrow-next"></i
+						></span>
+					</div>
+				</div>
+				<article class="trendingPreview-List trend-movie" id="carrusel">
+					<div class="movie-container">
+						<!--<img
+							src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+							class="movie-img"
+							alt="Nombre de la película"
+						/>-->
+					</div>
+				</article>
+				<div class="trend-container trend-container-serie">
+					<div class="trend-title">
+						<h1>TV Series📺</h1>
+					</div>
+					<div class="control-carrusel">
+						<span href="#" class="prev" onclick="carruselPrev(2)">
+							<i class="bx bx-chevron-left arrow-prev"></i>
+						</span>
+						<span href="#" class="next" onclick="carruselNext(2)"
+							><i class="bx bx-chevron-right arrow-next"></i
+						></span>
+					</div>
+				</div>
+				<article class="trendingPreview-List trend-serie" id="carrusel">
+					<div class="serie-container">
+						<!--<img
+							src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+							class="serie-img"
+							alt="Nombre de la película"
+						/>-->
+					</div>
 				</article>
 			</section>
 		</main>
