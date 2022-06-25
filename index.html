@@ -61,8 +61,8 @@
 			</nav>
 		</header>
 		<main>
-			<section class="slider" id="main-slider">
-			<!--	<div class="slide active-slide">
+			<!--<section class="slider" id="main-slider">
+				 CREAR ESTE DIV	<div class="slide active-slide">
 					<img src="/img/1.jpg" alt="" />
 					<div class="info">
 						<h2>Hola</h2>
@@ -70,10 +70,52 @@
 					</div>
 				</div>-->
 
+			<section class="slide-container" id="slider-container">
+				<!--<div class="slide">
+					<div class="slider-info">
+						<h1>Hola</h1>
+						<p>Lorem ipsum dolor.</p>
+					</div>
+					<div class="slider-img">
+						<img src="/img/1.jpg" alt="" />
+					</div>
+				</div>-->
 				<div class="navigation">
-					<i class="bx bxs-chevron-left prev-btn"></i>
-					<i class="bx bxs-chevron-right next-btn"></i>
+					<span href="#" class="prev-btn" onclick="nextSlide(-1)">
+						<i class="bx bx-chevron-left arrow-prev"></i
+					></span>
+					<span href="#" class="next-btn" onclick="nextSlide(1)"
+						><i class="bx bx-chevron-right arrow-next"></i
+					></span>
 				</div>
+			</section>
+			<section id="trendingPreview" class="trendingPreview-container">
+				<div class="trend-container">
+					<div class="trend-title">
+						<h1>Trends🔥</h1>
+						<p>See our hot trends about all kind of content that you like</p>
+					</div>
+					<div class="control-carrusel">
+						<span href="#" class="prev" onclick="carruselPrev(0)">
+							<i class="bx bx-chevron-left arrow-prev"></i>
+						</span>
+						<span href="#" class="next" onclick="carruselNext(0)"
+							><i class="bx bx-chevron-right arrow-next"></i
+						></span>
+					</div>
+				</div>
+				<article class="trendingPreview-List" id="carrusel">
+					<!--	<div class="trend-grid-container">
+						<img class="trend-img"
+							src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+							alt=""
+						/>
+						<div class="trend-info">
+							<h5>Titulo</h5>
+							<p>Lorem ipsum dolor sit amet</p>
+						</div>
+					</div>-->
+				</article>
 			</section>
 		</main>
 		<footer></footer>

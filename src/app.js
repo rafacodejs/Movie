@@ -8,12 +8,13 @@ const form = document.querySelector('form');
 
 // MAIN SLIDER VARIABLES
 
-const slider = document.querySelector('.slider');
-const nextBtn = document.querySelector('.next-btn');
-const prevBtn = document.querySelector('.prev-btn');
-const slides = document.querySelectorAll('.slide');
-const numberOfSlides = slides.length;
-var slideNumber = 0;
+let position = 1;
+
+// CARRUSEL VARIABLES
+
+const prev = document.querySelectorAll('.prev');
+const next = document.querySelectorAll('.next');
+const carrusel = document.querySelectorAll('#carrusel');
 
 // NAV BAR
 
@@ -38,81 +39,38 @@ searchBtn.addEventListener('click', () => {
 	cancelBtn.classList.add('show');
 });
 
-//image slider next button
-nextBtn.addEventListener('click', () => {
-	slides.forEach((slide) => {
-		slide.classList.remove('active-slide');
-	});
+// MAIN SLIDER
 
-	slideNumber++;
+function slidePosition(n) {
+	showSlides((position = n));
+}
 
-	if (slideNumber > numberOfSlides - 1) {
-		slideNumber = 0;
+function nextSlide(n) {
+	showSlides((position += n));
+}
+
+setInterval(function time() {
+	showSlides((position += 1));
+}, 5000);
+
+function showSlides(n) {
+	let i;
+	let slides = document.getElementsByClassName('slide');
+
+	if (n > slides.length) {
+		position = 1;
+	}
+	if (n < 1) {
+		position = slides.length;
+	}
+	for (i = 0; i < slides.length; i++) {
+		slides[i].style.display = 'none';
 	}
 
-	slides[slideNumber].classList.add('active-slide');
-});
+	slides[position - 1].style.display = 'block';
+}
 
-//image slider previous button
-
-nextBtn.addEventListener('click', () => {
-	slides.forEach((slide) => {
-		slide.classList.remove('active-slide');
-	});
-
-	slideNumber++;
-
-	if (slideNumber > numberOfSlides - 1) {
-		slideNumber = 0;
-	}
-
-	slides[slideNumber].classList.add('active-slide');
-});
-
-//image slider previous button
-prevBtn.addEventListener('click', () => {
-	slides.forEach((slide) => {
-		slide.classList.remove('active-slide');
-	});
-
-	slideNumber--;
-
-	if (slideNumber < 0) {
-		slideNumber = numberOfSlides - 1;
-	}
-
-	slides[slideNumber].classList.add('active-slide');
-});
-
-//image slider autoplay
-var playSlider;
-
-var repeater = () => {
-	playSlider = setInterval(function () {
-		slides.forEach((slide) => {
-			slide.classList.remove('active-slide');
-		});
-
-		slideNumber++;
-
-		if (slideNumber > numberOfSlides - 1) {
-			slideNumber = 0;
-		}
-
-		slides[slideNumber].classList.add('active-slide');
-	}, 4000);
-};
-repeater();
-
-//Stop the image slider autoplay on mouseover
-slider.addEventListener('mouseover', () => {
-	clearInterval(playSlider);
-});
-
-//Start the image slider autoplay again on mouseout
-slider.addEventListener('mouseout', () => {
-	repeater();
-});
+showSlides(position);
 
 function carruselPrev(num) {
 	if (prev.item(num)) {

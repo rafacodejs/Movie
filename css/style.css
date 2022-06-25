@@ -98,52 +98,58 @@ nav .logo.space {
 	color: var(--hover-color);
 	padding: 0 5px 0 0;
 }
-/*MAIN SECTION*/
 
-.slider {
+/* MAIN SLIDER */
+
+.slide-container {
 	position: relative;
 	margin: 20px auto;
-	background: transparent;
 	width: 80%;
-	min-height: 400px;
-	overflow-x: hidden;
+	max-height: 400px;
+	position: relative;
+	overflow: hidden;
 	border-radius: 10px;
+	scroll-behavior: smooth;
 }
-.slider .slide {
-	position: absolute;
-	width: 100%;
-	height: 400px;
-	clip-path: inset(0 100% 0 0);
-}
-.slider .slide.active-slide {
-	clip-path: inset(0 0 0 0);
-	transition: 0.8s;
-}
-.slider .slide img {
-	position: absolute;
-	width: 100%;
-	height: 400px;
-	object-fit: cover;
-}
-.slider .slide .info {
+.slider-info {
 	position: absolute;
 	color: #222;
-	background-color: rgba(255, 255, 255, 0.3);
+	background-color: rgba(255, 255, 255, 0.6);
 	width: 75%;
-	margin-top: 20%;
+	margin-top: 18%;
 	margin-left: 65px;
 	padding: 20px;
 	border-radius: 5px;
 	box-shadow: 0 5px 25px rgb(1 1 1/ 5%);
 	z-index: 1000;
 }
-.slider .slide .info h2 {
+.slider-info h2 {
+	width: 96%;
+	height: auto;
 	font-size: 2rem;
 	font-weight: 800;
 }
-.slider .slide .info p {
+.slider-info p {
+	width: 85%;
+	height: auto;
+	color: #222;
 	font-size: 1rem;
 	font-weight: 400;
+	margin-top: 12px;
+}
+.slide {
+	display: none;
+	transition: 2s;
+	height: 400px;
+}
+.slide .slide-img {
+	width: 100%;
+	max-height: 100vh;
+	height: 400px;
+	object-position: center center;
+	object-fit: cover;
+	background-repeat: no-repeat;
+	transition: 2s;
 }
 .navigation {
 	position: absolute;
@@ -152,14 +158,19 @@ nav .logo.space {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	opacity: 0;
+	font-size: 35px;
 	transition: opacity 0.4s ease-in;
+	opacity: 0;
+	z-index: 50;
 }
-.slider:hover .navigation {
+.slide-container:hover .navigation {
 	opacity: 1;
 }
-.prev-btn,
-.next-btn {
+
+.navigation .prev-btn,
+.navigation .next-btn {
+	width: 40px;
+	height: 60px;
 	z-index: 900;
 	font-size: 2rem;
 	color: #222;
@@ -174,4 +185,136 @@ nav .logo.space {
 .next-btn {
 	border-top-left-radius: 8px;
 	border-bottom-left-radius: 8px;
+}
+.navigation span .arrow-next,
+.navigation span .arrow-prev {
+	color: #222;
+	font-size: 3rem;
+	margin: -3px -15px;
+	cursor: pointer;
+}
+.fade {
+	animation-name: fade;
+	animation-duration: 1.5s;
+}
+
+@keyframes fade {
+	from {
+		opacity: 0.4;
+	}
+	to {
+		opacity: 1;
+	}
+}
+.trendingPreview-container {
+	width: 90%;
+	height: auto;
+	margin: 50px auto;
+}
+.trendingPreview-container .trend-container {
+	display: flex;
+	flex-direction: row;
+}
+.trend-container .trend-title {
+	width: 100%;
+	height: auto;
+	position: relative;
+	left: 70px;
+}
+.trend-container .trend-title h1 {
+	font-size: 2rem;
+	font-weight: 600;
+	color: var(--text-color);
+}
+.trend-container .trend-title p {
+	font-size: 1rem;
+	font-weight: 400;
+	color: var(--text-color);
+	margin-top: 15px;
+}
+.trend-container .control-carrusel {
+	display: flex;
+	flex-direction: row;
+	justify-content: end;
+	width: 100%;
+	height: auto;
+	margin-right: 80px;
+}
+.control-carrusel {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+.control-carrusel span {
+	width: 50px;
+	height: 50px;
+	margin-right: 12px;
+	border-radius: 10px;
+	border: 1px solid var(--text-color);
+}
+.control-carrusel span:hover {
+	background-color: var(--hover-color);
+	border: var(--text-color);
+}
+.prev i,
+.next i {
+	color: var(--text-color);
+	font-size: 1.8rem;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	cursor: pointer;
+}
+
+.trendingPreview-List {
+	display: flex;
+	flex-direction: row;
+	margin: 0 auto;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	white-space: nowrap;
+	width: 100%;
+	height: auto;
+	padding-bottom: 16px;
+	scroll-behavior: smooth;
+}
+.trend-grid-container {
+	width: 100%;
+	height: auto;
+	display: flex;
+	white-space: normal;
+	flex-direction: row;
+	margin-top: 50px;
+	margin-left: 70px;
+	margin-right: 0px;
+}
+.trend-grid-container .trend-img {
+	max-width: 160px;
+	width: 160px;
+	max-height: 180x;
+	height: 180px;
+	border-radius: 8px;
+}
+.trend-info {
+	width: 100%;
+	height: auto;
+	margin-left: 10px;
+}
+.trend-info h5 {
+	width: 180px;
+	color: var(--text-color);
+	font-size: 1.2rem;
+	font-weight: 600;
+}
+.trend-info p {
+	display: block;
+	width: 100%;
+	color: var(--text-color);
+	font-size: 0.8rem;
+	font-weight: 400;
+	margin-top: 10px;
+	margin-left: 5px;
 }
