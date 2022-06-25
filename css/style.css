@@ -14,12 +14,24 @@ nav {
 	justify-content: space-between;
 	height: 70px;
 	padding: 0 100px;
+	margin-top: 5px;
 }
 nav .logo {
+	display: flex;
+	flex-direction: row;
 	color: #fff;
 	font-size: 30px;
 	font-weight: 600;
 	letter-spacing: -1px;
+}
+nav .logo i {
+	font-size: 2.5rem;
+	
+}
+nav .logo h1 {
+	font-size: 2rem;
+	padding: 10px;
+	
 }
 nav .nav-items {
 	display: flex;
@@ -101,6 +113,27 @@ nav .logo.space {
 
 /* MAIN SLIDER */
 
+.main-title {
+	width: 100%;
+	height: auto;
+	color: var(--text-color);
+	margin-top: 50px;
+	margin-left: 140px;
+}
+.main-title h1 {
+	font-size: 2.4rem;
+	font-weight: 600;
+}
+.main-title h1 span {
+	font-size: 2.4rem;
+	color: var(--hover-color);
+}
+.main-title p {
+	font-size: 1.2rem;
+	margin-top: 17px;
+	color: #ababab;
+}
+
 .slide-container {
 	position: relative;
 	margin: 20px auto;
@@ -146,7 +179,7 @@ nav .logo.space {
 	width: 100%;
 	max-height: 100vh;
 	height: 400px;
-	object-position: center center;
+	object-position: center top;
 	object-fit: cover;
 	background-repeat: no-repeat;
 	transition: 2s;
