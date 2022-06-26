@@ -248,13 +248,15 @@ nav .logo.space {
 	display: flex;
 	flex-direction: row;
 }
-.trend-container .trend-title {
+.trend-container .trend-title,
+.category-title {
 	width: 100%;
 	height: auto;
 	position: relative;
 	left: 70px;
 }
-.trend-container .trend-title h1 {
+.trend-container .trend-title h1,
+.category-title h1 {
 	font-size: 2rem;
 	font-weight: 600;
 	color: var(--text-color);
@@ -417,4 +419,37 @@ nav .logo.space {
 	border-radius: 12px;
 	margin-right: 20px;
 }
-
+.categories-list {
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 50px auto;
+}
+.categories {
+	width: 90%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	position: relative;
+	top: 30px;
+	left: 50px;
+}
+.category-container {
+	background-color: var(--second-color);
+	width: 150px;
+	height: 50px;
+	margin-right: 10px;
+	margin-top: 10px;
+	border-radius: 12px;
+	cursor: pointer;
+}
+.category-container:hover {
+	background-color: var(--hover-color);
+}
+.category-container .category-title {
+	width: auto;
+	color: var(--text-color);
+	margin: 15px -50px;
+}
