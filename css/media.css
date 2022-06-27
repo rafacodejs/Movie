@@ -92,6 +92,10 @@
 	.trend-container .control-carrusel {
 		display: none;
 	}
+	.category-view-container {
+		width: 80%;
+		margin-left: 30px;
+	}
 }
 @media (max-width: 900px) {
 	.slider {

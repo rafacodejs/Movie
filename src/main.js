@@ -7,7 +7,6 @@ async function getTrendingPreviewSlider() {
 	const data = await res.json();
 
 	const movies = data.results;
-
 	movies.forEach((movie) => {
 		const trendingPreviewMovieContainer =
 			document.querySelector('#slider-container');
@@ -25,7 +24,7 @@ async function getTrendingPreviewSlider() {
 		movieImg.setAttribute('alt', movie.title);
 		movieImg.setAttribute(
 			'src',
-			`https://image.tmdb.org/t/p/original${movie.poster_path}`
+			`https://image.tmdb.org/t/p/original${movie.backdrop_path}`
 		);
 
 		title.textContent = movie.title || movie.original_name;
@@ -151,6 +150,7 @@ async function getTrendingPreviewSeries() {
 	const data = await res.json();
 
 	const series = data.results;
+
 	series.forEach((serie) => {
 		const trendingPreviewSerieContainer = document.querySelector(
 			'#carrusel .serie-container'

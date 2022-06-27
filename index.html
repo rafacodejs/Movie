@@ -41,9 +41,9 @@
 				</div>
 				<div class="nav-items">
 					<ul>
-						<li><a href="#">Movie</a></li>
-						<li><a href="#">TV Series</a></li>
-						<li><a href="#">Hot Trending</a></li>
+						<li><a href="#trendingPreview">Hot Trending</a></li>
+						<li><a href="#movie">Movie</a></li>
+						<li><a href="#serie">TV Series</a></li>
 					</ul>
 				</div>
 				<div class="search-icon">
@@ -65,8 +65,14 @@
 		</header>
 		<main>
 			<section class="main-title">
-				<h1>Explorer <span>Top Movies & TV Series</span> Around The World</h1>
-				<p>From you phone at this website</p>
+				<button class="arrow-back inactive arrow-view" id="arrow-back">
+					<i class="bx bx-chevron-left"></i>
+				</button>
+				<h1 class="main-title-index">
+					Explorer <span>Top Movies & TV Series</span> Around The World
+				</h1>
+				<p class="main-paragraph">From you phone at this website</p>
+				<h1 class="main-title-category inactive">Acción</h1>
 			</section>
 			<section class="slide-container" id="slider-container">
 				<!--<div class="slide">
@@ -128,7 +134,7 @@
 						</div>
 					</div>-->
 				</article>
-				<div class="trend-container trend-container-movie">
+				<div class="trend-container trend-container-movie" id="movie">
 					<div class="trend-title">
 						<h1>Movie🎥</h1>
 					</div>
@@ -150,7 +156,7 @@
 						/>-->
 					</div>
 				</article>
-				<div class="trend-container trend-container-serie">
+				<div class="trend-container trend-container-serie" id="serie">
 					<div class="trend-title">
 						<h1>TV Series📺</h1>
 					</div>
@@ -192,9 +198,90 @@
 					</div>
 				</article>
 			</section>
+			<section class="category-view-container inactive">
+				<div class="category-view-item">
+					<img
+						src="https://es.web.img2.acsta.net/pictures/21/12/01/12/07/0243323.jpg"
+						alt=""
+					/>
+					<div class="category-view-item-info">
+						<h3>Spiderman</h3>
+						<h3>2021</h3>
+					</div>
+				</div>
+			</section>
+			<section class="overview-container inactive">
+				<button class="arrow-back" id="arrow-back">
+					<i class="bx bx-chevron-left"></i>
+				</button>
+
+				<div class="overview-header">
+					<div class="fade-bg"></div>
+					<img src="/img/1.jpg" alt="" />
+				</div>
+				<div class="overview-container-item">
+					<div class="overview-poster">
+						<img
+							src="https://es.web.img2.acsta.net/pictures/21/12/01/12/07/0243323.jpg"
+							alt=""
+						/>
+					</div>
+					<section class="overview-container-info">
+						<div class="overview-title">
+							<h1>Back to the Future</h1>
+							<div class="overview-year-genres">
+								<h3>Year</h3>
+								<h3>Genres</h3>
+							</div>
+							<p class="description">Lorem ipsum dolor</p>
+						</div>
+					</section>
+				</div>
+				<div class="trend-container">
+					<div class="trend-title similar-title">
+						<h1>Similar</h1>
+					</div>
+					<div class="control-carrusel similar-control">
+						<span href="#" class="prev" onclick="carruselPrev(3)">
+							<i class="bx bx-chevron-left arrow-prev"></i>
+						</span>
+						<span href="#" class="next" onclick="carruselNext(3)"
+							><i class="bx bx-chevron-right arrow-next"></i
+						></span>
+					</div>
+				</div>
+
+				<article class="trendingPreview-List similar-list" id="carrusel">
+					<div class="trend-grid-container">
+						<img
+							class="trend-img"
+							src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+							alt=""
+						/>
+						<div class="trend-info">
+							<h4>Titulo</h4>
+							<div class="details">
+								<p class="year">2022</p>
+								<p class="genres">Acción</p>
+							</div>
+							<div class="rated">
+								<p class="voted">7.5</p>
+								<i class="bx bxs-star"></i>
+								<i class="bx bxs-star"></i>
+								<i class="bx bxs-star"></i>
+								<i class="bx bxs-star"></i>
+								<i class="bx bxs-star"></i>
+							</div>
+							<button type="button"><a href="">Watch Now</a></button>
+						</div>
+					</div>
+				</article>
+			</section>
 		</main>
 		<footer></footer>
 		<script src="/src/app.js"></script>
+		<script src="/src/node.js"></script>
 		<script src="/src/main.js"></script>
+		<script src="/src/nav.js"></script>
 	</body>
 </html>
