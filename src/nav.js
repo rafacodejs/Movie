@@ -1,11 +1,15 @@
 searchFormBtn.addEventListener('click', () => {
 	location.hash = `#search=${searchFormInput.value.trim()}`;
 });
-
-/*trendingBtn.addEventListener('click', () => {
-	location.hash = '#trends';
-});*/
 arrowBtn.addEventListener('click', () => {
+	const stateLoad = window.history.state ? window.history.state.loadUrl : '';
+	if (stateLoad.includes('#')) {
+		window.location.hash = '';
+	} else {
+		window.history.back();
+	}
+});
+arrowBtnCategories.addEventListener('click', () => {
 	const stateLoad = window.history.state ? window.history.state.loadUrl : '';
 	if (stateLoad.includes('#')) {
 		window.location.hash = '';
@@ -51,12 +55,18 @@ function homePage() {
 	mainParagraph.classList.remove('inactive');
 	categoryMainTitle.classList.add('inactive');
 	arrowBtn.classList.add('inactive');
+	arrowBtnCategories.classList.add('inactive');
 	mainSlider.classList.remove('inactive');
 	mainSlideNav.classList.remove('inactive');
 	trendContainer.classList.remove('inactive');
 	categoryViewSection.classList.add('inactive');
 	categoryViewSectionSeries.classList.add('inactive');
 	overviewContainer.classList.add('inactive');
+	overviewSimilar.classList.add('inactive');
+
+	getTrendingPreviewMovies();
+	getTrendingPreviewSeries();
+	getTrendingPreview();
 }
 
 function categoriesPage() {
@@ -65,13 +75,15 @@ function categoriesPage() {
 	mainTitle.classList.add('inactive');
 	mainParagraph.classList.add('inactive');
 	categoryMainTitle.classList.remove('inactive');
-	arrowBtn.classList.remove('inactive');
+	arrowBtn.classList.add('inactive');
+	arrowBtnCategories.classList.remove('inactive');
 	mainSlider.classList.add('inactive');
 	mainSlideNav.classList.add('inactive');
 	trendContainer.classList.add('inactive');
 	categoryViewSection.classList.remove('inactive');
 	categoryViewSectionSeries.classList.remove('inactive');
 	overviewContainer.classList.add('inactive');
+	overviewSimilar.classList.add('inactive');
 
 	const [_, categoryData] = location.hash.split('=');
 	const [categoryId, categoryName] = categoryData.split('-');
@@ -89,13 +101,19 @@ function movieDetailsPage() {
 	mainTitle.classList.add('inactive');
 	mainParagraph.classList.add('inactive');
 	categoryMainTitle.classList.add('inactive');
-	arrowBtn.classList.add('inactive');
+	arrowBtn.classList.remove('inactive');
+	arrowBtnCategories.classList.add('inactive');
 	mainSlider.classList.add('inactive');
 	mainSlideNav.classList.add('inactive');
 	trendContainer.classList.add('inactive');
 	categoryViewSection.classList.add('inactive');
 	categoryViewSectionSeries.classList.add('inactive');
 	overviewContainer.classList.remove('inactive');
+	overviewSimilar.classList.remove('inactive');
+
+	const [_, Id] = location.hash.split('=');
+	getDetailsMovies(Id);
+	getDetailsSeries(Id);
 }
 
 function searchPage() {
@@ -104,20 +122,19 @@ function searchPage() {
 	mainTitle.classList.add('inactive');
 	mainParagraph.classList.add('inactive');
 	categoryMainTitle.classList.remove('inactive');
-	arrowBtn.classList.remove('inactive');
+	arrowBtn.classList.add('inactive');
+	arrowBtnCategories.classList.remove('inactive');
 	mainSlider.classList.add('inactive');
 	mainSlideNav.classList.add('inactive');
 	trendContainer.classList.add('inactive');
-	categoryViewSection.classList.remove('inactive');
-	categoryViewSection.classList.remove('inactive');
+	categoryViewSection.classList.add('inactive');
+	categoryViewSectionSeries.classList.remove('inactive');
 	overviewContainer.classList.add('inactive');
+	overviewSimilar.classList.add('inactive');
 
 	const [_, query] = location.hash.split('=');
+	const newName = decodeURI(query);
+	categoryMainTitle.innerHTML = newName;
+
 	getMoviesBySearch(query);
-}
-
-function trendsPage() {
-	console.log('TRENDS!!');
-
-	getTrendingMovies();
 }

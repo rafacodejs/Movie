@@ -16,7 +16,6 @@ async function getTrendingPreviewSlider() {
 
 	const trendingPreviewMovieContainer =
 		document.querySelector('#slider-container');
-	trendingPreviewMovieContainer.innerHTML = '';
 
 	movies.forEach((movie) => {
 		const container = document.createElement('div');
@@ -49,133 +48,40 @@ getTrendingPreviewSlider();
 
 async function getTrendingPreview() {
 	const { data } = await API(`trending/all/week`);
-	//const data = await res.json();
 
-	const movies = data.results;
-	movies.forEach((movie) => {
-		const trendingPreviewContainer = document.querySelector(
-			'#trendingPreview .trendingPreview-List'
-		);
-
-		const previewContainerList = document.createElement('div');
-		const previewContainerListImg = document.createElement('img');
-		const previewContainerInfo = document.createElement('div');
-		const previewContainerInfoTitle = document.createElement('h4');
-		const previewContainerInfoDetails = document.createElement('div');
-		const previewContainerInfoYear = document.createElement('p');
-		// const previewContainerInfoGenre = document.createElement('p');
-		const previewContainerRated = document.createElement('div');
-		const previewContainerStar = document.createElement('i');
-		const previewContainerVoted = document.createElement('p');
-		const previewContainerButton = document.createElement('button');
-		const previewContainerLink = document.createElement('a');
-
-		previewContainerList.classList.add('trend-grid-container');
-		previewContainerListImg.classList.add('trend-img');
-		previewContainerInfo.classList.add('trend-info');
-		previewContainerInfoDetails.classList.add('details');
-		previewContainerInfoYear.classList.add('year');
-		// previewContainerInfoGenre.classList.add('genres');
-		previewContainerRated.classList.add('rated');
-		previewContainerStar.classList.add('bx', 'bxs-star');
-		previewContainerVoted.classList.add('voted');
-		previewContainerButton.classList.add('button');
-
-		previewContainerListImg.setAttribute('alt', movie.title);
-		previewContainerListImg.setAttribute(
-			'src',
-			`https://image.tmdb.org/t/p/w500${movie.poster_path}`
-		);
-
-		previewContainerLink.href = movie.id;
-		previewContainerInfoTitle.textContent = movie.title || movie.original_name;
-
-		// FIND YEAR
-		const releaseDate = movie.release_date || movie.first_air_date;
-		const releaseDateYear = releaseDate.split('-');
-		previewContainerInfoYear.textContent = releaseDateYear[0];
-
-		// previewContainerInfoGenre.textContent = movie.genre_ids;
-		previewContainerVoted.textContent = movie.vote_average;
-		previewContainerButton.textContent = 'Watch Now';
-
-		// DETAILS
-
-		previewContainerRated.appendChild(previewContainerStar);
-		previewContainerRated.appendChild(previewContainerVoted);
-		previewContainerInfoDetails.appendChild(previewContainerInfoYear);
-		// previewContainerInfoDetails.appendChild(previewContainerInfoGenre);
-
-		//INFO
-		previewContainerInfo.appendChild(previewContainerInfoTitle);
-		previewContainerInfo.appendChild(previewContainerInfoDetails);
-		previewContainerInfo.appendChild(previewContainerRated);
-
-		// BOTÓN
-		previewContainerButton.appendChild(previewContainerLink);
-		previewContainerInfo.appendChild(previewContainerButton);
-
-		// GRID
-		previewContainerList.appendChild(previewContainerListImg);
-		previewContainerList.appendChild(previewContainerInfo);
-
-		trendingPreviewContainer.appendChild(previewContainerList);
-	});
+	const item = data.results;
+	const trendingPreviewContainer = document.querySelector(
+		'#trendingPreview .trendingPreview-List'
+	);
+	createTrendingPreview(item, trendingPreviewContainer);
 }
-getTrendingPreview();
 
 async function getTrendingPreviewMovies() {
 	const { data } = await API(`trending/movie/day`);
-	//const data = await res.json();
+	const movie_tv = data.results;
 
-	const movies = data.results;
-	movies.forEach((movie) => {
-		const trendingPreviewMovieContainer = document.querySelector(
-			'#carrusel .movie-container'
-		);
+	const trendingPreviewMovieContainer = document.querySelector(
+		'#carrusel .movie-container'
+	);
 
-		const movieImg = document.createElement('img');
-		movieImg.classList.add('movie-img');
-
-		movieImg.setAttribute('alt', movie.title);
-		movieImg.setAttribute(
-			'src',
-			`https://image.tmdb.org/t/p/w300${movie.poster_path}`
-		);
-		trendingPreviewMovieContainer.appendChild(movieImg);
-	});
+	createMovieTV(movie_tv, trendingPreviewMovieContainer);
 }
-getTrendingPreviewMovies();
 
 async function getTrendingPreviewSeries() {
 	const { data } = await API(`trending/tv/day`);
-	//const data = await res.json();
 
-	const series = data.results;
+	const movie_tv = data.results;
+	const trendingPreviewSerieContainer = document.querySelector(
+		'#carrusel .serie-container'
+	);
 
-	series.forEach((serie) => {
-		const trendingPreviewSerieContainer = document.querySelector(
-			'#carrusel .serie-container'
-		);
-
-		const serieImg = document.createElement('img');
-		serieImg.classList.add('serie-img');
-
-		serieImg.setAttribute('alt', serie.title);
-		serieImg.setAttribute(
-			'src',
-			`https://image.tmdb.org/t/p/w300${serie.poster_path}`
-		);
-		trendingPreviewSerieContainer.appendChild(serieImg);
-	});
+	createMovieTV(movie_tv, trendingPreviewSerieContainer);
 }
-getTrendingPreviewSeries();
 
 async function getCategoriesMoviesPreview() {
 	const { data } = await API(`genre/movie/list`);
-	//const data = await res.json();
-
 	const categories = data.genres;
+
 	categories.forEach((category) => {
 		const categoriesContainer = document.querySelector(
 			'.categories-list .categories'
@@ -202,9 +108,8 @@ getCategoriesMoviesPreview();
 
 async function getCategoriesSeriesPreview() {
 	const { data } = await API(`genre/tv/list`);
-	//const data = await res.json();
-
 	const categories = data.genres;
+
 	categories.forEach((category) => {
 		const categoriesContainer = document.querySelector(
 			'.categories-list .categories'
@@ -240,37 +145,7 @@ async function getByCategoryMovies(categoryId) {
 	const categoryMovieContainer = document.querySelector(
 		'.category-view-container'
 	);
-	categoryMovieContainer.innerHTML = '';
-	categoriesMovies.forEach((category) => {
-		const categoryItemContainer = document.createElement('div');
-		const categoryItemImg = document.createElement('img');
-		const categoryItemInfo = document.createElement('div');
-		const categoryItemInfoName = document.createElement('h3');
-		const categoryItemInfoYear = document.createElement('h3');
-
-		categoryItemContainer.classList.add('category-view-item');
-		categoryItemInfo.classList.add('category-view-item-info');
-		categoryItemInfoName.classList.add('category-view-name');
-		categoryItemInfoYear.classList.add('category-view-year');
-
-		categoryItemImg.setAttribute('alt', category.title);
-		categoryItemImg.setAttribute(
-			'src',
-			`https://image.tmdb.org/t/p/w300${category.poster_path}`
-		);
-
-		categoryItemInfoName.textContent = category.title || category.original_name;
-
-		const releaseDate = category.release_date || category.first_air_date;
-		const releaseDateYear = releaseDate.split('-');
-		categoryItemInfoYear.textContent = releaseDateYear[0];
-
-		categoryItemInfo.appendChild(categoryItemInfoName);
-		categoryItemInfo.appendChild(categoryItemInfoYear);
-		categoryItemContainer.appendChild(categoryItemImg);
-		categoryItemContainer.appendChild(categoryItemInfo);
-		categoryMovieContainer.appendChild(categoryItemContainer);
-	});
+	createByCategories(categoriesMovies, categoryMovieContainer);
 }
 async function getByCategorySeries(categoryId) {
 	const { data } = await API(`discover/tv`, {
@@ -279,40 +154,8 @@ async function getByCategorySeries(categoryId) {
 		},
 	});
 	const categoriesSeries = data.results;
-
 	const categorySerieContainer = document.querySelector('.category-view-serie');
-	categorySerieContainer.innerHTML = '';
-
-	categoriesSeries.forEach((category) => {
-		const categoryItemContainer = document.createElement('div');
-		const categoryItemImg = document.createElement('img');
-		const categoryItemInfo = document.createElement('div');
-		const categoryItemInfoName = document.createElement('h3');
-		const categoryItemInfoYear = document.createElement('h3');
-
-		categoryItemContainer.classList.add('category-view-item');
-		categoryItemInfo.classList.add('category-view-item-info');
-		categoryItemInfoName.classList.add('category-view-name');
-		categoryItemInfoYear.classList.add('category-view-year');
-
-		categoryItemImg.setAttribute('alt', category.title);
-		categoryItemImg.setAttribute(
-			'src',
-			`https://image.tmdb.org/t/p/w300${category.poster_path}`
-		);
-
-		categoryItemInfoName.textContent = category.title || category.original_name;
-
-		const releaseDate = category.release_date || category.first_air_date;
-		const releaseDateYear = releaseDate.split('-');
-		categoryItemInfoYear.textContent = releaseDateYear[0];
-
-		categoryItemInfo.appendChild(categoryItemInfoName);
-		categoryItemInfo.appendChild(categoryItemInfoYear);
-		categoryItemContainer.appendChild(categoryItemImg);
-		categoryItemContainer.appendChild(categoryItemInfo);
-		categorySerieContainer.appendChild(categoryItemContainer);
-	});
+	createByCategories(categoriesSeries, categorySerieContainer);
 }
 async function getMoviesBySearch(query) {
 	const { data } = await API(`search/multi`, {
@@ -320,40 +163,25 @@ async function getMoviesBySearch(query) {
 			query,
 		},
 	});
-	const categoriesSeries = data.results;
-	console.log(categoriesSeries);
+	const categoriesBySearch = data.results;
+	const categorySearchContainer = document.querySelector(
+		'.category-view-serie'
+	);
+	createByCategories(categoriesBySearch, categorySearchContainer);
+}
 
-	const categorySerieContainer = document.querySelector('.category-view-serie');
-	categorySerieContainer.innerHTML = '';
+async function getDetailsMovies(id) {
+	const { data: movie } = await API(`movie/${id}`);
+	const movies = movie;
+	const overviewContainer = document.querySelector('.overview-container');
+	createDetailsMoviesTv(movies, overviewContainer);
+	getRelatedMoviesId(id);
+}
+async function getDetailsSeries(id) {
+	const { data: serie } = await API(`tv/${id}`);
+	const series = serie;
 
-	categoriesSeries.forEach((category) => {
-		/*const categoryItemContainer = document.createElement('div');
-		const categoryItemImg = document.createElement('img');
-		const categoryItemInfo = document.createElement('div');
-		const categoryItemInfoName = document.createElement('h3');
-		const categoryItemInfoYear = document.createElement('h3');
-
-		categoryItemContainer.classList.add('category-view-item');
-		categoryItemInfo.classList.add('category-view-item-info');
-		categoryItemInfoName.classList.add('category-view-name');
-		categoryItemInfoYear.classList.add('category-view-year');
-
-		categoryItemImg.setAttribute('alt', category.title);
-		categoryItemImg.setAttribute(
-			'src',
-			`https://image.tmdb.org/t/p/w300${category.poster_path}`
-		);
-
-		categoryItemInfoName.textContent = category.title || category.original_name;
-
-		const releaseDate = category.release_date || category.first_air_date;
-		const releaseDateYear = releaseDate.split('-');
-		categoryItemInfoYear.textContent = releaseDateYear[0];
-
-		categoryItemInfo.appendChild(categoryItemInfoName);
-		categoryItemInfo.appendChild(categoryItemInfoYear);
-		categoryItemContainer.appendChild(categoryItemImg);
-		categoryItemContainer.appendChild(categoryItemInfo);
-		categorySerieContainer.appendChild(categoryItemContainer);*/
-	});
+	const overviewContainer = document.querySelector('.overview-container');
+	createDetailsMoviesTv(series, overviewContainer);
+	getRelatedSeriesId(id);
 }

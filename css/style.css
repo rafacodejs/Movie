@@ -198,7 +198,7 @@ nav .logo.space {
 	font-size: 35px;
 	transition: opacity 0.4s ease-in;
 	opacity: 0;
-	z-index: 50;
+	z-index: 40000;
 }
 .slide-container:hover .navigation {
 	opacity: 1;
@@ -511,9 +511,9 @@ nav .logo.space {
 	height: 300px;
 	margin-top: -30px;
 }
-.overview-container .overview-header img {
+.overview-container .overview-header .bg-poster {
 	height: 300px;
-	background: #783ce3;
+	object-position: center;
 }
 .overview-header .fade-bg {
 	width: 100%;
@@ -538,7 +538,7 @@ nav .logo.space {
 	height: auto;
 	margin-left: 50px;
 }
-.overview-container-item .overview-poster img {
+.overview-container-item .overview-poster .poster {
 	width: 300px;
 	height: 400px;
 }
@@ -550,17 +550,19 @@ nav .logo.space {
 .overview-container-info .overview-title {
 	margin-top: 15px;
 }
-.overview-container-info .overview-title h1 {
+.overview-container-info .overview-title .overview-main-title {
 	color: var(--text-color);
 	font-size: 2.4rem;
 	font-weight: 700;
+	line-height: 2.4rem;
 }
 .overview-year-genres {
 	display: flex;
 	flex-direction: row;
 	margin-top: 20px;
 }
-.overview-year-genres h3 {
+.overview-year-genres .item-year,
+.overview-year-genres .item-genre {
 	font-size: 1.4rem;
 	font-weight: 400;
 	color: var(--text-color);
@@ -572,6 +574,12 @@ nav .logo.space {
 	color: var(--text-color);
 	line-height: 1.5rem;
 	margin-top: 10px;
+}
+.similar-container {
+	width: 100%;
+	height: 40vh;
+	position: relative;
+	bottom: 300px;
 }
 .similar-title h1 {
 	position: relative;
@@ -590,6 +598,11 @@ nav .logo.space {
 	top: 170px;
 	right: 50px;
 }
+.trend-grid-container.grid-similar {
+	position: relative;
+	height: 320px;
+	top: 100px
+}
 .arrow-back {
 	position: absolute;
 	margin-left: 50px;
@@ -601,11 +614,18 @@ nav .logo.space {
 .arrow-back i {
 	font-size: 3rem;
 }
-.arrow-view {
-	margin: 0;
-	left: 90px;
-	top: 113px;
+.arrow-back-categories {
+	position: absolute;
+	margin-left: -50px;
+	margin-top: -12px;
+	color: var(--text-color);
+	z-index: 30000;
+	cursor: pointer;
 }
+.arrow-back-categories i {
+	font-size: 3rem;
+}
+
 .inactive {
 	display: none;
 }

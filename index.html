@@ -52,21 +52,15 @@
 				<div class="cancel-icon">
 					<i class="bx bx-x"></i>
 				</div>
-				<form action="#">
-					<input
-						type="search"
-						class="search-data"
-						placeholder="Search"
-						required
-						id="SearchInput"
-					/>
+				<form>
+					<input type="search" class="search-data" placeholder="Search" />
 					<button type="submit" class="bx bx-search" id="search"></button>
 				</form>
 			</nav>
 		</header>
 		<main>
 			<section class="main-title">
-				<button class="arrow-back inactive arrow-view" id="arrow-back">
+				<button class="arrow-back-categories" id="arrow-back">
 					<i class="bx bx-chevron-left"></i>
 				</button>
 				<h1 class="main-title-index">
@@ -230,71 +224,78 @@
 
 				<div class="overview-header">
 					<div class="fade-bg"></div>
-					<img src="/img/1.jpg" alt="" />
+					<img src="/img/1.jpg" alt="" class="bg-poster" />
 				</div>
-				<div class="overview-container-item">
+				<section class="overview-container-item">
 					<div class="overview-poster">
 						<img
 							src="https://es.web.img2.acsta.net/pictures/21/12/01/12/07/0243323.jpg"
 							alt=""
+							class="poster"
 						/>
 					</div>
-					<section class="overview-container-info">
+					<div class="overview-container-info">
 						<div class="overview-title">
-							<h1>Back to the Future</h1>
+							<h1 class="overview-main-title">Back to the Future</h1>
 							<div class="overview-year-genres">
-								<h3>Year</h3>
-								<h3>Genres</h3>
+								<h3 class="item-year">Year</h3>
+								<h3 class="item-genre">Genres</h3>
 							</div>
 							<p class="description">Lorem ipsum dolor</p>
 						</div>
-					</section>
-				</div>
-				<div class="trend-container">
-					<div class="trend-title similar-title">
-						<h1>Similar</h1>
 					</div>
-					<div class="control-carrusel similar-control">
-						<span href="#" class="prev" onclick="carruselPrev(3)">
-							<i class="bx bx-chevron-left arrow-prev"></i>
-						</span>
-						<span href="#" class="next" onclick="carruselNext(3)"
-							><i class="bx bx-chevron-right arrow-next"></i
-						></span>
-					</div>
-				</div>
-
-				<article class="trendingPreview-List similar-list" id="carrusel">
-					<div class="trend-grid-container">
-						<img
-							class="trend-img"
-							src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-							alt=""
-						/>
-						<div class="trend-info">
-							<h4>Titulo</h4>
-							<div class="details">
-								<p class="year">2022</p>
-								<p class="genres">Acción</p>
-							</div>
-							<div class="rated">
-								<p class="voted">7.5</p>
-								<i class="bx bxs-star"></i>
-								<i class="bx bxs-star"></i>
-								<i class="bx bxs-star"></i>
-								<i class="bx bxs-star"></i>
-								<i class="bx bxs-star"></i>
-							</div>
-							<button type="button"><a href="">Watch Now</a></button>
+				</section>
+				
+				<section class="similar-container">
+					<div class="trend-container">
+						<div class="trend-title similar-title">
+							<h1>Similar</h1>
+						</div>
+						<div class="control-carrusel similar-control">
+							<span href="#" class="prev" onclick="carruselPrev(3)">
+								<i class="bx bx-chevron-left arrow-prev"></i>
+							</span>
+							<span href="#" class="next" onclick="carruselNext(3)"
+								><i class="bx bx-chevron-right arrow-next"></i
+							></span>
 						</div>
 					</div>
-				</article>
+					<article
+						class="trendingPreview-List similar-list inactive"
+						id="carrusel"
+					>
+						<div class="trend-grid-container grid-similar">
+							<img
+								class="trend-img"
+								src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+								alt=""
+							/>
+							<div class="trend-info">
+								<h4>Titulo</h4>
+								<div class="details">
+									<p class="year">2022</p>
+									<p class="genres">Acción</p>
+								</div>
+								<div class="rated">
+									<p class="voted">7.5</p>
+									<i class="bx bxs-star"></i>
+									<i class="bx bxs-star"></i>
+									<i class="bx bxs-star"></i>
+									<i class="bx bxs-star"></i>
+									<i class="bx bxs-star"></i>
+								</div>
+								<button type="button"><a href="">Watch Now</a></button>
+							</div>
+						</div>
+					</article>
+				</section>
 			</section>
 		</main>
 		<footer></footer>
 		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 		<script src="/src/app.js"></script>
 		<script src="/src/node.js"></script>
+		<script src="/src/utils.js"></script>
 		<script src="/src/main.js"></script>
 		<script src="/src/nav.js"></script>
 	</body>
