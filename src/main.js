@@ -1,16 +1,24 @@
 const API_KEY = 'e9274037413b6dee8ef09c956605fee3';
 
+const API = axios.create({
+	baseURL: 'https://api.themoviedb.org/3',
+	headers: {
+		'Content-Type': 'application/json;charset=utf-8',
+	},
+	params: {
+		api_key: API_KEY,
+	},
+});
+
 async function getTrendingPreviewSlider() {
-	const res = await fetch(
-		`https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`
-	);
-	const data = await res.json();
-
+	const { data } = await API(`trending/all/day`);
 	const movies = data.results;
-	movies.forEach((movie) => {
-		const trendingPreviewMovieContainer =
-			document.querySelector('#slider-container');
 
+	const trendingPreviewMovieContainer =
+		document.querySelector('#slider-container');
+	trendingPreviewMovieContainer.innerHTML = '';
+
+	movies.forEach((movie) => {
 		const container = document.createElement('div');
 		const titleContainer = document.createElement('div');
 		const title = document.createElement('h2');
@@ -40,10 +48,8 @@ async function getTrendingPreviewSlider() {
 getTrendingPreviewSlider();
 
 async function getTrendingPreview() {
-	const res = await fetch(
-		`https://api.themoviedb.org/3/trending/all/week?api_key=${API_KEY}`
-	);
-	const data = await res.json();
+	const { data } = await API(`trending/all/week`);
+	//const data = await res.json();
 
 	const movies = data.results;
 	movies.forEach((movie) => {
@@ -119,10 +125,8 @@ async function getTrendingPreview() {
 getTrendingPreview();
 
 async function getTrendingPreviewMovies() {
-	const res = await fetch(
-		`https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`
-	);
-	const data = await res.json();
+	const { data } = await API(`trending/movie/day`);
+	//const data = await res.json();
 
 	const movies = data.results;
 	movies.forEach((movie) => {
@@ -144,10 +148,8 @@ async function getTrendingPreviewMovies() {
 getTrendingPreviewMovies();
 
 async function getTrendingPreviewSeries() {
-	const res = await fetch(
-		`https://api.themoviedb.org/3/trending/tv/day?api_key=${API_KEY}`
-	);
-	const data = await res.json();
+	const { data } = await API(`trending/tv/day`);
+	//const data = await res.json();
 
 	const series = data.results;
 
@@ -169,11 +171,9 @@ async function getTrendingPreviewSeries() {
 }
 getTrendingPreviewSeries();
 
-async function getCategoriesPreview() {
-	const res = await fetch(
-		`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`
-	);
-	const data = await res.json();
+async function getCategoriesMoviesPreview() {
+	const { data } = await API(`genre/movie/list`);
+	//const data = await res.json();
 
 	const categories = data.genres;
 	categories.forEach((category) => {
@@ -186,6 +186,10 @@ async function getCategoriesPreview() {
 
 		categoryContainer.classList.add('category-container');
 		categoryTitle.classList.add('category-title');
+		categoryTitle.setAttribute('id', `id${category.id}`);
+		categoryTitle.addEventListener('click', () => {
+			location.hash = `#category=${category.id}-${category.name}`;
+		});
 		categoryTitle.setAttribute('id', category.name);
 		const categoryTitleText = document.createTextNode(category.name);
 
@@ -194,4 +198,162 @@ async function getCategoriesPreview() {
 		categoriesContainer.appendChild(categoryContainer);
 	});
 }
-getCategoriesPreview();
+getCategoriesMoviesPreview();
+
+async function getCategoriesSeriesPreview() {
+	const { data } = await API(`genre/tv/list`);
+	//const data = await res.json();
+
+	const categories = data.genres;
+	categories.forEach((category) => {
+		const categoriesContainer = document.querySelector(
+			'.categories-list .categories'
+		);
+
+		const categoryContainer = document.createElement('div');
+		const categoryTitle = document.createElement('h3');
+
+		categoryContainer.classList.add('category-container');
+		categoryTitle.classList.add('category-title');
+		categoryTitle.setAttribute('id', `id${category.id}`);
+		categoryTitle.addEventListener('click', () => {
+			location.hash = `#category=${category.id}-${category.name}`;
+		});
+		categoryTitle.setAttribute('id', category.name);
+		const categoryTitleText = document.createTextNode(category.name);
+
+		categoryTitle.appendChild(categoryTitleText);
+		categoryContainer.appendChild(categoryTitle);
+		categoriesContainer.appendChild(categoryContainer);
+	});
+}
+getCategoriesSeriesPreview();
+
+async function getByCategoryMovies(categoryId) {
+	const { data } = await API(`discover/movie`, {
+		params: {
+			with_genres: categoryId,
+		},
+	});
+	const categoriesMovies = data.results;
+
+	const categoryMovieContainer = document.querySelector(
+		'.category-view-container'
+	);
+	categoryMovieContainer.innerHTML = '';
+	categoriesMovies.forEach((category) => {
+		const categoryItemContainer = document.createElement('div');
+		const categoryItemImg = document.createElement('img');
+		const categoryItemInfo = document.createElement('div');
+		const categoryItemInfoName = document.createElement('h3');
+		const categoryItemInfoYear = document.createElement('h3');
+
+		categoryItemContainer.classList.add('category-view-item');
+		categoryItemInfo.classList.add('category-view-item-info');
+		categoryItemInfoName.classList.add('category-view-name');
+		categoryItemInfoYear.classList.add('category-view-year');
+
+		categoryItemImg.setAttribute('alt', category.title);
+		categoryItemImg.setAttribute(
+			'src',
+			`https://image.tmdb.org/t/p/w300${category.poster_path}`
+		);
+
+		categoryItemInfoName.textContent = category.title || category.original_name;
+
+		const releaseDate = category.release_date || category.first_air_date;
+		const releaseDateYear = releaseDate.split('-');
+		categoryItemInfoYear.textContent = releaseDateYear[0];
+
+		categoryItemInfo.appendChild(categoryItemInfoName);
+		categoryItemInfo.appendChild(categoryItemInfoYear);
+		categoryItemContainer.appendChild(categoryItemImg);
+		categoryItemContainer.appendChild(categoryItemInfo);
+		categoryMovieContainer.appendChild(categoryItemContainer);
+	});
+}
+async function getByCategorySeries(categoryId) {
+	const { data } = await API(`discover/tv`, {
+		params: {
+			with_genres: categoryId,
+		},
+	});
+	const categoriesSeries = data.results;
+
+	const categorySerieContainer = document.querySelector('.category-view-serie');
+	categorySerieContainer.innerHTML = '';
+
+	categoriesSeries.forEach((category) => {
+		const categoryItemContainer = document.createElement('div');
+		const categoryItemImg = document.createElement('img');
+		const categoryItemInfo = document.createElement('div');
+		const categoryItemInfoName = document.createElement('h3');
+		const categoryItemInfoYear = document.createElement('h3');
+
+		categoryItemContainer.classList.add('category-view-item');
+		categoryItemInfo.classList.add('category-view-item-info');
+		categoryItemInfoName.classList.add('category-view-name');
+		categoryItemInfoYear.classList.add('category-view-year');
+
+		categoryItemImg.setAttribute('alt', category.title);
+		categoryItemImg.setAttribute(
+			'src',
+			`https://image.tmdb.org/t/p/w300${category.poster_path}`
+		);
+
+		categoryItemInfoName.textContent = category.title || category.original_name;
+
+		const releaseDate = category.release_date || category.first_air_date;
+		const releaseDateYear = releaseDate.split('-');
+		categoryItemInfoYear.textContent = releaseDateYear[0];
+
+		categoryItemInfo.appendChild(categoryItemInfoName);
+		categoryItemInfo.appendChild(categoryItemInfoYear);
+		categoryItemContainer.appendChild(categoryItemImg);
+		categoryItemContainer.appendChild(categoryItemInfo);
+		categorySerieContainer.appendChild(categoryItemContainer);
+	});
+}
+async function getMoviesBySearch(query) {
+	const { data } = await API(`search/multi`, {
+		params: {
+			query,
+		},
+	});
+	const categoriesSeries = data.results;
+	console.log(categoriesSeries);
+
+	const categorySerieContainer = document.querySelector('.category-view-serie');
+	categorySerieContainer.innerHTML = '';
+
+	categoriesSeries.forEach((category) => {
+		/*const categoryItemContainer = document.createElement('div');
+		const categoryItemImg = document.createElement('img');
+		const categoryItemInfo = document.createElement('div');
+		const categoryItemInfoName = document.createElement('h3');
+		const categoryItemInfoYear = document.createElement('h3');
+
+		categoryItemContainer.classList.add('category-view-item');
+		categoryItemInfo.classList.add('category-view-item-info');
+		categoryItemInfoName.classList.add('category-view-name');
+		categoryItemInfoYear.classList.add('category-view-year');
+
+		categoryItemImg.setAttribute('alt', category.title);
+		categoryItemImg.setAttribute(
+			'src',
+			`https://image.tmdb.org/t/p/w300${category.poster_path}`
+		);
+
+		categoryItemInfoName.textContent = category.title || category.original_name;
+
+		const releaseDate = category.release_date || category.first_air_date;
+		const releaseDateYear = releaseDate.split('-');
+		categoryItemInfoYear.textContent = releaseDateYear[0];
+
+		categoryItemInfo.appendChild(categoryItemInfoName);
+		categoryItemInfo.appendChild(categoryItemInfoYear);
+		categoryItemContainer.appendChild(categoryItemImg);
+		categoryItemContainer.appendChild(categoryItemInfo);
+		categorySerieContainer.appendChild(categoryItemContainer);*/
+	});
+}

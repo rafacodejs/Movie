@@ -442,7 +442,7 @@ nav .logo.space {
 }
 .category-container {
 	background-color: var(--second-color);
-	width: 150px;
+	width: 180px;
 	height: 50px;
 	margin-right: 10px;
 	margin-top: 10px;
@@ -457,7 +457,8 @@ nav .logo.space {
 	color: var(--text-color);
 	margin: 15px -50px;
 }
-.category-view-container {
+.category-view-container,
+.category-view-serie {
 	width: 85%;
 	display: flex;
 	flex-direction: row;
@@ -496,7 +497,8 @@ nav .logo.space {
 	background-color: rgba(255, 255, 255, 0.8);
 	border-radius: 5px;
 }
-.category-view-item .category-view-item-info h3 {
+.category-view-item .category-view-item-info .category-view-name,
+.category-view-item .category-view-item-info .category-view-year {
 	margin-left: 15px;
 	margin-top: 5px;
 	font-weight: 600;

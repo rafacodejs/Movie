@@ -6,4 +6,9 @@ const mainSlider = document.querySelector('.slide-container');
 const mainSlideNav = document.querySelector('.navigation');
 const trendContainer = document.querySelector('.trendingPreview-container');
 const categoryViewSection = document.querySelector('.category-view-container');
+const categoryViewSectionSeries = document.querySelector(
+	'.category-view-serie'
+);
 const overviewContainer = document.querySelector('.overview-container');
+const searchFormBtn = document.getElementById('search');
+const searchFormInput = document.getElementById('SearchInput');
