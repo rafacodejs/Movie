@@ -51,7 +51,7 @@ function nextSlide(n) {
 
 setInterval(function time() {
 	showSlides((position += 1));
-}, 5000);
+}, 4000);
 
 function showSlides(n) {
 	let i;
@@ -85,4 +85,10 @@ function carruselNext(num) {
 	} else {
 		carrusel.scrollLeft = 0;
 	}
+}
+
+function spinnerLoad() {
+	setTimeout(function () {
+		document.getElementById('loading').style.display = 'none';
+	}, 3800);
 }

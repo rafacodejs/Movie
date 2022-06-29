@@ -99,10 +99,12 @@ function createByCategories(category, container) {
 		const categoryItemContainer = document.createElement('div');
 		const categoryItemImg = document.createElement('img');
 		const categoryItemInfo = document.createElement('div');
+		const categoryItemFade = document.createElement('div');
 		const categoryItemInfoName = document.createElement('h3');
 		const categoryItemInfoYear = document.createElement('h3');
 
 		categoryItemContainer.classList.add('category-view-item');
+		categoryItemFade.classList.add('fade-card');
 		categoryItemInfo.classList.add('category-view-item-info');
 		categoryItemInfoName.classList.add('category-view-name');
 		categoryItemInfoYear.classList.add('category-view-year');
@@ -123,6 +125,7 @@ function createByCategories(category, container) {
 		categoryItemInfo.appendChild(categoryItemInfoYear);
 		categoryItemContainer.appendChild(categoryItemImg);
 		categoryItemContainer.appendChild(categoryItemInfo);
+		categoryItemContainer.appendChild(categoryItemFade);
 		container.appendChild(categoryItemContainer);
 	});
 }
@@ -185,7 +188,8 @@ function createDetailsMoviesTv(item, container) {
 	itemContainerGenre.classList.add('item-genre');
 	itemContainerDescription.classList.add('description');
 
-	itemContainerMainTitle.textContent = item.title || item.name;
+	itemContainerMainTitle.textContent =
+		item.title || item.original_title || item.name;
 	itemContainerGenre.textContent = item.genres[1].name;
 	itemContainerDescription.textContent = item.overview;
 	itemContainerPosterImg.setAttribute('alt', item.title);
