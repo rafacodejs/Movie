@@ -2,6 +2,7 @@
 
 function createTrendingPreview(movie_serie, container) {
 	container.innerHTML = '';
+
 	movie_serie.forEach((item) => {
 		const previewContainerList = document.createElement('div');
 		const previewContainerListImg = document.createElement('img');
@@ -184,7 +185,7 @@ function createDetailsMoviesTv(item, container) {
 	itemContainerGenre.classList.add('item-genre');
 	itemContainerDescription.classList.add('description');
 
-	itemContainerMainTitle.textContent = item.title;
+	itemContainerMainTitle.textContent = item.title || item.name;
 	itemContainerGenre.textContent = item.genres[1].name;
 	itemContainerDescription.textContent = item.overview;
 	itemContainerPosterImg.setAttribute('alt', item.title);

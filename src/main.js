@@ -13,6 +13,7 @@ const API = axios.create({
 async function getTrendingPreviewSlider() {
 	const { data } = await API(`trending/all/day`);
 	const movies = data.results;
+	console.log(movies);
 
 	const trendingPreviewMovieContainer =
 		document.querySelector('#slider-container');
@@ -176,7 +177,7 @@ async function getDetailsMovies(id) {
 
 	const overviewContainer = document.querySelector('.overview-container');
 	createDetailsMoviesTv(movies, overviewContainer);
-	//getRelatedMoviesId(id);
+	getRelatedMoviesId(id);
 }
 async function getDetailsSeries(id) {
 	const { data: serie } = await API(`tv/${id}`);
@@ -184,4 +185,23 @@ async function getDetailsSeries(id) {
 
 	const overviewContainer = document.querySelector('.overview-container');
 	createDetailsMoviesTv(series, overviewContainer);
+	getRelatedSeriesId(id);
+}
+async function getRelatedMoviesId(id) {
+	const { data } = await API(`movie/${id}/similar`);
+	const relatedMovies = data.results;
+
+	const container = document.querySelector('.trendingSimilar');
+	container.innerHTML = '';
+	createTrendingPreview(relatedMovies, container);
+	overviewSimilar.appendChild(container);
+}
+async function getRelatedSeriesId(id) {
+	const { data } = await API(`tv/${id}/similar`);
+	const relatedSeries = data.results;
+
+	const container = document.querySelector('.trendingSimilar');
+	container.innerHTML = '';
+	createTrendingPreview(relatedSeries, container);
+	overviewSimilar.appendChild(container);
 }
