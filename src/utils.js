@@ -84,6 +84,9 @@ function createMovieTV(movie_tv, container) {
 			'src',
 			`https://image.tmdb.org/t/p/w300${item.poster_path}`
 		);
+		imgMovieTv.addEventListener('click', () => {
+			location.hash = `#movie=${item.id}`;
+		});
 		container.appendChild(imgMovieTv);
 	});
 }

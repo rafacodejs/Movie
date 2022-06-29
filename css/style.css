@@ -422,6 +422,7 @@ nav .logo.space {
 	max-width: 150px;
 	border-radius: 12px;
 	margin-right: 20px;
+	cursor: pointer;
 }
 .categories-list {
 	width: 100%;
@@ -577,31 +578,26 @@ nav .logo.space {
 }
 .similar-container {
 	width: 100%;
-	height: 40vh;
+	height: auto;
 	position: relative;
-	bottom: 300px;
+	top: 20px;
 }
 .similar-title h1 {
 	position: relative;
-	top: 200px;
-	left: 20px;
+	top: 100px;
+	left: 350px;
 }
 .similar-list {
 	position: relative;
-	top: 150px;
+	top: 50px;
 	width: 93%;
 	margin: 0;
 	left: 30px;
 }
 .similar-control {
 	position: relative;
-	top: 170px;
+	top: 70px;
 	right: 50px;
-}
-.trend-grid-container.grid-similar {
-	position: relative;
-	height: 320px;
-	top: 100px
 }
 .arrow-back {
 	position: absolute;

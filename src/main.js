@@ -173,9 +173,10 @@ async function getMoviesBySearch(query) {
 async function getDetailsMovies(id) {
 	const { data: movie } = await API(`movie/${id}`);
 	const movies = movie;
+
 	const overviewContainer = document.querySelector('.overview-container');
 	createDetailsMoviesTv(movies, overviewContainer);
-	getRelatedMoviesId(id);
+	//getRelatedMoviesId(id);
 }
 async function getDetailsSeries(id) {
 	const { data: serie } = await API(`tv/${id}`);
@@ -183,5 +184,4 @@ async function getDetailsSeries(id) {
 
 	const overviewContainer = document.querySelector('.overview-container');
 	createDetailsMoviesTv(series, overviewContainer);
-	getRelatedSeriesId(id);
 }

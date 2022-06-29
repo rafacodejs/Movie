@@ -11,6 +11,6 @@ const categoryViewSectionSeries = document.querySelector(
 	'.category-view-serie'
 );
 const overviewContainer = document.querySelector('.overview-container');
-const overviewSimilar = document.querySelector('.similar-list');
+const overviewSimilar = document.querySelector('.similar-container');
 const searchFormBtn = document.getElementById('search');
 const searchFormInput = document.querySelector('.search-data');
