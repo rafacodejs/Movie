@@ -114,6 +114,9 @@ function createByCategories(category, container) {
 			'src',
 			`https://image.tmdb.org/t/p/w300${category.poster_path}`
 		);
+		categoryItemContainer.addEventListener('click', () => {
+			location.hash = `#movie=${category.id}`;
+		});
 
 		categoryItemInfoName.textContent = category.title || category.original_name;
 
@@ -225,6 +228,4 @@ function createDetailsMoviesTv(item, container) {
 	itemContainer.appendChild(itemContainerPoster);
 	itemContainer.appendChild(itemContainerInfo);
 	container.appendChild(itemContainer);
-	//getRelatedMoviesId(id);
-	//getRelatedSeriesId(id);
 }
