@@ -13,7 +13,6 @@ const API = axios.create({
 async function getTrendingPreviewSlider() {
 	const { data } = await API(`trending/all/day`);
 	const movies = data.results;
-	console.log(movies);
 
 	const trendingPreviewMovieContainer =
 		document.querySelector('#slider-container');
@@ -34,6 +33,8 @@ async function getTrendingPreviewSlider() {
 			'src',
 			`https://image.tmdb.org/t/p/original${movie.backdrop_path}`
 		);
+
+		//lazyLoader.observe(movieImg);
 
 		title.textContent = movie.title || movie.original_name;
 		description.textContent = movie.overview;

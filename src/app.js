@@ -90,5 +90,5 @@ function carruselNext(num) {
 function spinnerLoad() {
 	setTimeout(function () {
 		document.getElementById('loading').style.display = 'none';
-	}, 3800);
+	}, 4000);
 }

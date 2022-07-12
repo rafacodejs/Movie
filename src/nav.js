@@ -49,7 +49,7 @@ function navigator() {
 }
 
 function homePage() {
-	console.log('Home!!');
+	//console.log('Home!!');
 
 	mainTitle.classList.remove('inactive');
 	mainParagraph.classList.remove('inactive');
@@ -70,7 +70,7 @@ function homePage() {
 }
 
 function categoriesPage() {
-	console.log('categories!!');
+	//console.log('categories!!');
 
 	mainTitle.classList.add('inactive');
 	mainParagraph.classList.add('inactive');
@@ -96,7 +96,7 @@ function categoriesPage() {
 }
 
 function movieDetailsPage() {
-	console.log('Movie!!');
+	//console.log('Movie!!');
 
 	mainTitle.classList.add('inactive');
 	mainParagraph.classList.add('inactive');
@@ -117,7 +117,7 @@ function movieDetailsPage() {
 }
 
 function searchPage() {
-	console.log('Search!!');
+	//console.log('Search!!');
 
 	mainTitle.classList.add('inactive');
 	mainParagraph.classList.add('inactive');

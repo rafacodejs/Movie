@@ -1,5 +1,17 @@
-// UTILS
+// OBSERVER
 
+const lazyLoader = new IntersectionObserver((entries) => {
+	entries.forEach((entry) => {
+		//console.log(entry);
+
+		if (entry.isIntersecting) {
+			const url = entry.target.getAttribute('data-img');
+			entry.target.setAttribute('src', url);
+		}
+	});
+});
+
+// CREATE FUNCTION
 function createTrendingPreview(movie_serie, container) {
 	container.innerHTML = '';
 
@@ -30,12 +42,14 @@ function createTrendingPreview(movie_serie, container) {
 
 		previewContainerListImg.setAttribute('alt', item.title);
 		previewContainerListImg.setAttribute(
-			'src',
+			'data-img',
 			`https://image.tmdb.org/t/p/w500${item.poster_path}`
 		);
 
 		previewContainerLink.href = movie.id;
 		previewContainerInfoTitle.textContent = item.title || item.original_name;
+
+		lazyLoader.observe(previewContainerListImg);
 
 		// FIND YEAR
 		const releaseDate = item.release_date || item.first_air_date;
@@ -82,9 +96,12 @@ function createMovieTV(movie_tv, container) {
 
 		imgMovieTv.setAttribute('alt', item.title);
 		imgMovieTv.setAttribute(
-			'src',
+			'data-img',
 			`https://image.tmdb.org/t/p/w300${item.poster_path}`
 		);
+
+		lazyLoader.observe(imgMovieTv);
+
 		imgMovieTv.addEventListener('click', () => {
 			location.hash = `#movie=${item.id}`;
 		});
@@ -111,9 +128,17 @@ function createByCategories(category, container) {
 
 		categoryItemImg.setAttribute('alt', category.title);
 		categoryItemImg.setAttribute(
-			'src',
+			'data-img',
 			`https://image.tmdb.org/t/p/w300${category.poster_path}`
 		);
+
+		categoryItemImg.addEventListener('error', () => {
+			categoryItemImg.setAttribute('src', 'img/imageNotFound.jpg');
+		});
+
+
+		lazyLoader.observe(categoryItemImg);
+
 		categoryItemContainer.addEventListener('click', () => {
 			location.hash = `#movie=${category.id}`;
 		});
@@ -163,9 +188,11 @@ function createDetailsMoviesTv(item, container) {
 	overviewHeaderImg.classList.add('bg-poster');
 	overviewHeaderImg.setAttribute('alt', item.title);
 	overviewHeaderImg.setAttribute(
-		'src',
+		'data-img',
 		`https://image.tmdb.org/t/p/original${item.backdrop_path}`
 	);
+
+	lazyLoader.observe(overviewHeaderImg);
 
 	//ELEMENTS
 
@@ -197,9 +224,11 @@ function createDetailsMoviesTv(item, container) {
 	itemContainerDescription.textContent = item.overview;
 	itemContainerPosterImg.setAttribute('alt', item.title);
 	itemContainerPosterImg.setAttribute(
-		'src',
+		'data-img',
 		`https://image.tmdb.org/t/p/w500${item.poster_path}`
 	);
+
+	lazyLoader.observe(itemContainerPosterImg);
 
 	const releaseDate = item.release_date || item.first_air_date;
 	const releaseDateYear = releaseDate.split('-');
