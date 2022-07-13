@@ -10,6 +10,15 @@ const lazyLoader = new IntersectionObserver((entries) => {
 		}
 	});
 });
+// DATA 
+
+function  likedList() {
+	return localStorage.getItem('liked_movies')
+}
+
+function likeMovieTv(movieTv) {
+	if ()
+}
 
 // CREATE FUNCTION
 function createTrendingPreview(movie_serie, container) {
@@ -91,8 +100,15 @@ function createMovieTV(movie_tv, container) {
 	container.innerHTML = '';
 
 	movie_tv.forEach((item) => {
+		const favContainerInfo = document.createElement('div');
 		const imgMovieTv = document.createElement('img');
-		imgMovieTv.classList.add('movie-img', 'serie-img');
+		const likedContainer = document.createElement('div');
+		const btnLike = document.createElement('button');
+
+		favContainerInfo.classList.add('fav-container-info');
+		imgMovieTv.classList.add('movie-img', 'serie-img', 'fav-img');
+		likedContainer.classList.add('liked-container');
+		btnLike.classList.add('liked-btn');
 
 		imgMovieTv.setAttribute('alt', item.title);
 		imgMovieTv.setAttribute(
@@ -105,7 +121,16 @@ function createMovieTV(movie_tv, container) {
 		imgMovieTv.addEventListener('click', () => {
 			location.hash = `#movie=${item.id}`;
 		});
-		container.appendChild(imgMovieTv);
+
+		favContainerInfo.addEventListener('click', () => {
+			btnLike.classList.toggle('liked-btn--liked');
+			likeMovieTv();
+		});
+
+		favContainerInfo.appendChild(imgMovieTv);
+		likedContainer.appendChild(btnLike);
+		favContainerInfo.appendChild(likedContainer);
+		container.appendChild(favContainerInfo);
 	});
 }
 
@@ -135,7 +160,6 @@ function createByCategories(category, container) {
 		categoryItemImg.addEventListener('error', () => {
 			categoryItemImg.setAttribute('src', 'img/imageNotFound.jpg');
 		});
-
 
 		lazyLoader.observe(categoryItemImg);
 
