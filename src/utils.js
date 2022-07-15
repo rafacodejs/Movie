@@ -10,17 +10,38 @@ const lazyLoader = new IntersectionObserver((entries) => {
 		}
 	});
 });
-// DATA 
 
-function  likedList() {
-	return localStorage.getItem('liked_movies')
+// DATA
+
+function likedMoviesList() {
+	const item = JSON.parse(localStorage.getItem('liked_movies'));
+	let movies;
+	if (item) {
+		movies = item;
+	} else {
+		movies = {};
+	}
+	return movies;
 }
+function likeMovieTv(movie) {
+	const likedMovies = likedMoviesList();
+	console.log(likedMoviesList());
 
-function likeMovieTv(movieTv) {
-	if ()
+	if (likedMovies[movie.id]) {
+		likedMovies[movie.id] = undefined;
+	} else {
+		likedMovies[movie.id] = movie;
+	}
+	localStorage.setItem('liked_movies', JSON.stringify(likedMovies));
+
+	getTrendingPreviewSlider();
+	getTrendingPreviewMovies();
+	getTrendingPreviewSeries();
+	getLikedMovieTv();
 }
 
 // CREATE FUNCTION
+
 function createTrendingPreview(movie_serie, container) {
 	container.innerHTML = '';
 
@@ -100,12 +121,16 @@ function createMovieTV(movie_tv, container) {
 	container.innerHTML = '';
 
 	movie_tv.forEach((item) => {
-		const favContainerInfo = document.createElement('div');
+		const containerInfo = document.createElement('div');
 		const imgMovieTv = document.createElement('img');
 		const likedContainer = document.createElement('div');
 		const btnLike = document.createElement('button');
 
-		favContainerInfo.classList.add('fav-container-info');
+		containerInfo.classList.add(
+			'fav-container-info',
+			'movie-container-info',
+			'serie-container-info'
+		);
 		imgMovieTv.classList.add('movie-img', 'serie-img', 'fav-img');
 		likedContainer.classList.add('liked-container');
 		btnLike.classList.add('liked-btn');
@@ -122,15 +147,17 @@ function createMovieTV(movie_tv, container) {
 			location.hash = `#movie=${item.id}`;
 		});
 
-		favContainerInfo.addEventListener('click', () => {
+		likedMoviesList()[item.id] && btnLike.classList.add('liked-btn--liked');
+
+		containerInfo.addEventListener('click', () => {
 			btnLike.classList.toggle('liked-btn--liked');
-			likeMovieTv();
+			likeMovieTv(item);
 		});
 
-		favContainerInfo.appendChild(imgMovieTv);
+		containerInfo.appendChild(imgMovieTv);
 		likedContainer.appendChild(btnLike);
-		favContainerInfo.appendChild(likedContainer);
-		container.appendChild(favContainerInfo);
+		containerInfo.appendChild(likedContainer);
+		container.appendChild(containerInfo);
 	});
 }
 

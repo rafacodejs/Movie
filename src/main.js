@@ -206,3 +206,15 @@ async function getRelatedSeriesId(id) {
 	createTrendingPreview(relatedSeries, container);
 	overviewSimilar.appendChild(container);
 }
+
+// LOCAL STORAGE
+
+function getLikedMovieTv() {
+	const likedMovieTv = likedMoviesList();
+	const arrayMovieTv = Object.values(likedMovieTv);
+
+	const trendingPreviewMovieContainer = document.querySelector(
+		'#carrusel .fav-container'
+	);
+	createMovieTV(arrayMovieTv, trendingPreviewMovieContainer);
+}

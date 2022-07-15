@@ -64,6 +64,7 @@ function homePage() {
 	overviewContainer.classList.add('inactive');
 	overviewSimilar.classList.add('inactive');
 
+	getLikedMovieTv();
 	getTrendingPreviewMovies();
 	getTrendingPreviewSeries();
 	getTrendingPreview();

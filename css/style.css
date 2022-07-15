@@ -427,6 +427,12 @@ nav .logo.space {
 .fav-container {
 	margin-top: 50px;
 }
+.movie-container-info,
+.serie-container-info,
+.fav-container-info {
+	width: 100%;
+	height: auto;
+}
 .movie-container .movie-img,
 .serie-container .serie-img,
 .fav-container .fav-img {
