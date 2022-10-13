@@ -67,6 +67,7 @@
   .overview-container-info .overview-title .overview-main-title {
     width: 195px;
     font-size: 1.4rem;
+    line-height: 1.5rem;
   }
   .overview-container-info .overview-title .description {
     width: 175px;
@@ -80,7 +81,7 @@
     margin-right: 5px;
   }
   .similar-container {
-    top: 50px
+    top: 50px;
   }
   .category-view-item img {
     width: 80px;
@@ -244,7 +245,7 @@
     opacity: 0;
     pointer-events: none;
     transition: top 0.4s ease, opacity 0.4s ease-in;
-    z-index: 1000;
+    z-index: 500000;
   }
   nav form.active {
     top: 80px;

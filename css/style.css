@@ -502,16 +502,16 @@ nav .logo.space {
 }
 .category-view-container,
 .category-view-serie {
-  width: 85%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin-top: 50px;
-
   gap: 20px;
 }
+
 .category-view-item {
   height: 300px;
   display: flex;
@@ -521,7 +521,6 @@ nav .logo.space {
   height: auto;
   cursor: pointer;
 }
-
 .category-view-item img {
   width: 200px;
   height: 300px;
@@ -541,7 +540,7 @@ nav .logo.space {
   transform: scale(1);
 }
 .category-view-item .category-view-item-info {
-  width: 250px;
+  width: 200px;
   height: 300px;
   position: absolute;
   display: flex;
@@ -709,7 +708,7 @@ nav .logo.space {
 .inactive {
   display: none;
 }
-/*loading {
+#loading {
   position: fixed;
   top: 0;
   left: 0;
