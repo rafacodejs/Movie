@@ -52,8 +52,7 @@ async function getTrendingPreview() {
   const { data } = await API(`trending/all/week`);
 
   const item = data.results;
-  
-  console.log(item);
+
   const trendingPreviewContainer = document.querySelector(
     '#trendingPreview .trendingPreview-List'
   );
