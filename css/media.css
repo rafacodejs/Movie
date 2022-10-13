@@ -111,6 +111,7 @@
     overflow-x: auto;
     display: flex;
     scroll-snap-type: x mandatory;
+    margin-left: 15px;
   }
   .trend-grid-container {
     scroll-snap-align: start;
@@ -138,7 +139,7 @@
 @media (max-width: 1245px) {
   nav {
     padding: 0 50px;
-  }
+  }trend-title
 }
 @media (max-width: 1140px) {
   nav {
