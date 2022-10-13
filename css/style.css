@@ -182,10 +182,12 @@ nav .logo.space {
   height: auto;
   font-size: 2rem;
   font-weight: 800;
-  line-height: 2rem;
+  text-transform: uppercase;
+  line-height: 2.2rem;
 }
 .slider-info p {
-  width: 85%;
+  width: 100%;
+  text-align: justify;
   height: auto;
   color: #222;
   font-size: 1rem;
@@ -262,6 +264,11 @@ nav .logo.space {
     opacity: 1;
   }
 }
+
+/* MAIN SLIDER*/
+
+/* CARRUSELES*/
+
 .trendingPreview-container {
   width: 90%;
   height: auto;
@@ -328,6 +335,8 @@ nav .logo.space {
   cursor: pointer;
 }
 
+/*H*/
+
 .trendingPreview-List {
   display: flex;
   flex-direction: row;
@@ -337,8 +346,8 @@ nav .logo.space {
   white-space: nowrap;
   width: 100%;
   height: auto;
-  padding-bottom: 16px;
   scroll-behavior: smooth;
+  margin-left: 15px;
 }
 .trend-grid-container {
   width: 100%;
@@ -346,11 +355,12 @@ nav .logo.space {
   display: flex;
   white-space: normal;
   flex-direction: row;
-  margin-top: 50px;
+  margin-top: 40px;
   margin-left: 70px;
   margin-right: 0px;
   background-color: var(--second-color);
   border-radius: 12px;
+  box-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
 }
 .trend-grid-container .trend-img {
   max-width: 160px;
@@ -383,7 +393,7 @@ nav .logo.space {
 .trend-info .details .year,
 .trend-info .details .genres {
   font-size: 1rem;
-  color: #ababab;
+  color: var(--dimWhite);
   margin-right: 15px;
 }
 .trend-info .rated {
@@ -394,7 +404,7 @@ nav .logo.space {
 }
 .trend-info .rated .voted {
   font-size: 1rem;
-  color: #ababab;
+  color: var(--dimWhite);
   margin-left: 5px;
 }
 .trend-info .rated i {
@@ -408,14 +418,14 @@ nav .logo.space {
   height: 40px;
   margin-top: 20px;
   border-radius: 25px;
-  background-color: #783ce3;
+  background-color: var(--hover-color);
   color: var(--text-color);
   cursor: pointer;
 }
 .trend-container.trend-container-movie,
 .trend-container.trend-container-serie,
 .trend-container.trend-container-fav {
-  margin-top: 100px;
+  margin-top: 40px;
 }
 .trendingPreview-List.trend-movie,
 .trendingPreview-List.trend-serie,
@@ -434,7 +444,7 @@ nav .logo.space {
 .movie-container,
 .serie-container,
 .fav-container {
-  margin-top: 50px;
+  margin-top: 30px;
 }
 .movie-container-info,
 .serie-container-info,
@@ -466,11 +476,12 @@ nav .logo.space {
 .categories {
   width: 90%;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
   position: relative;
   top: 30px;
-  left: 50px;
 }
 .category-container {
   background-color: var(--second-color);
@@ -485,6 +496,7 @@ nav .logo.space {
   background-color: var(--hover-color);
 }
 .category-container .category-title {
+  font-size: 1rem;
   width: auto;
   color: var(--text-color);
   margin: 15px -50px;

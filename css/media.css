@@ -45,6 +45,22 @@
   .navigation span .arrow-prev {
     font-size: 1.8rem;
   }
+  .trend-info h4 {
+    width: 150px;
+    font-size: 1rem;
+  }
+  .categories {
+    left: 0;
+  }
+  .category-container {
+    width: 130px;
+  }
+  .category-container .category-title {
+    width: 120px;
+    font-size: 0.9rem;
+    margin: 15px -50px;
+    line-height: 1.2rem;
+  }
 }
 
 @media (max-width: 980px) {
@@ -71,7 +87,6 @@
   .main-title .main-title-index {
     width: 80%;
     font-size: clamp(1rem, 1vw + 1.5rem, 2.4rem);
-    right: 200px;
   }
   .main-title .main-title-index span {
     font-size: clamp(1rem, 1vw + 1.5rem, 2.4rem);
@@ -86,18 +101,12 @@
     left: 20px;
   }
   .trend-container .trend-title h1 {
-    font-size: clamp(1rem, 1vw + 1rem, 1.8rem);
+    font-size: 1.5rem;
   }
   .trend-container .trend-title p {
     width: 90%;
-    font-size: clamp(0.8rem, 0.8vw + 0.8rem, 0.9rem);
+    font-size: 0.9rem;
   }
-  /*.trend-container .trend-title {
-		width: 80%;
-		height: auto;
-		position: relative;
-		left: 70px;
-	}*/
   .trendingPreview-List {
     overflow-x: auto;
     display: flex;
@@ -148,7 +157,7 @@
     height: 100%;
     padding: 10px 50px 0 50px;
     text-align: center;
-    background: #14181f;
+    background: var(--main-color);
     display: inline-block;
     transition: left 0.5s ease;
   }
@@ -158,7 +167,8 @@
   nav .nav-items ul {
     display: flex;
     flex-direction: column;
-    margin-left: -100px;
+    justify-content: center;
+    align-items: center;
   }
   nav .nav-items ul li {
     line-height: 20px;
