@@ -502,15 +502,15 @@ nav .logo.space {
 }
 .category-view-container,
 .category-view-serie {
-  width: 85%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin-top: 50px;
-  margin-left: 100px;
-  gap: 30px;
+  
+  gap: 20px;
 }
 .category-view-item {
   height: 300px;
@@ -691,7 +691,7 @@ nav .logo.space {
 .arrow-back {
   position: absolute;
   margin-left: 50px;
-  margin-top: 3px;
+  margin-top: 10px;
   color: var(--text-color);
   z-index: 30000;
   cursor: pointer;
@@ -701,8 +701,7 @@ nav .logo.space {
 }
 .arrow-back-categories {
   position: absolute;
-  margin-left: -50px;
-  margin-top: -12px;
+  left: 70px;
   color: var(--text-color);
   z-index: 30000;
   cursor: pointer;

@@ -82,6 +82,10 @@
   .similar-container {
     top: 90px;
   }
+  .category-view-item img {
+    width: 80px;
+    height: 120px;
+  }
 }
 @media (max-width: 768px) {
   .overview-container-item {
@@ -166,6 +170,9 @@
   }
   .overview-container-info .overview-title .description {
     width: 82%;
+  }
+  .arrow-back {
+    margin-left: 10px;
   }
 }
 @media (max-width: 900px) {
