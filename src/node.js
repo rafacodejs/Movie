@@ -8,7 +8,7 @@ const mainSlideNav = document.querySelector('.navigation');
 const trendContainer = document.querySelector('.trendingPreview-container');
 const categoryViewSection = document.querySelector('.category-view-container');
 const categoryViewSectionSeries = document.querySelector(
-	'.category-view-serie'
+  '.category-view-serie'
 );
 const overviewContainer = document.querySelector('.overview-container');
 const overviewSimilar = document.querySelector('.similar-container');

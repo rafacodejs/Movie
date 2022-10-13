@@ -1,80 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>MovieLab</title>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta
-			name="description"
-			content="Movie website built in HTML, CSS AND JS VANILLA, using TheMovieDB API"
-		/>
-		<meta
-			name="keywords"
-			content="Movies, TV Series, website movie, películas, streaming"
-		/>
+  <head>
+    <title>MovieLab</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Movie website built in HTML, CSS AND JS VANILLA, using TheMovieDB API"
+    />
+    <meta
+      name="keywords"
+      content="Movies, TV Series, website movie, películas, streaming"
+    />
 
-		<link rel="stylesheet" href="/css/style.css" />
-		<link rel="stylesheet" href="/css/media.css" />
-		<link rel="stylesheet" href="/css/reset.css" />
-		<link rel="icon" href="/img/movie.ico" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap"
-			rel="stylesheet"
-		/>
-		<link
-			href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
-			rel="stylesheet"
-		/>
-	</head>
-	<body onload="spinnerLoad()">
-		<div id="loading">
-			<div class="lds-dual-ring"></div>
-		</div>
-		<div class="main"></div>
-		<header>
-			<nav>
-				<div class="menu-icon">
-					<i class="bx bx-menu"></i>
-				</div>
-				<div class="logo">
-					<i class="bx bx-movie-play"></i>
-					<h1>MovieLab</h1>
-				</div>
-				<div class="nav-items">
-					<ul>
-						<li><a href="#trendingPreview">Hot Trending</a></li>
-						<li><a href="#movie">Movie</a></li>
-						<li><a href="#serie">TV Series</a></li>
-					</ul>
-				</div>
-				<div class="search-icon">
-					<i class="bx bx-search"></i>
-				</div>
-				<div class="cancel-icon">
-					<i class="bx bx-x"></i>
-				</div>
-				<form>
-					<input type="search" class="search-data" placeholder="Search" />
-					<button type="submit" class="bx bx-search" id="search"></button>
-				</form>
-			</nav>
-		</header>
-		<main>
-			<section class="main-title">
-				<button class="arrow-back-categories" id="arrow-back">
-					<i class="bx bx-chevron-left"></i>
-				</button>
-				<h1 class="main-title-index">
-					Explorer <span>Top Movies & TV Series</span> Around The World
-				</h1>
-				<p class="main-paragraph">From you phone at this website</p>
-				<h1 class="main-title-category inactive">Acción</h1>
-			</section>
-			<section class="slide-container" id="slider-container">
-				<!--<div class="slide">
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/media.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="icon" href="/img/movie.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body onload="spinnerLoad()">
+    <div id="loading">
+      <div class="lds-dual-ring"></div>
+    </div>
+    <div class="main"></div>
+    <header>
+      <nav>
+        <div class="menu-icon">
+          <i class="bx bx-menu"></i>
+        </div>
+        <div class="logo">
+          <i class="bx bx-movie-play"></i>
+          <h1>MovieLab</h1>
+        </div>
+        <div class="nav-items">
+          <ul>
+            <li><a href="#trendingPreview">Hot Trending</a></li>
+            <li><a href="#movie">Movie</a></li>
+            <li><a href="#serie">TV Series</a></li>
+          </ul>
+        </div>
+        <div class="search-icon">
+          <i class="bx bx-search"></i>
+        </div>
+        <div class="cancel-icon">
+          <i class="bx bx-x"></i>
+        </div>
+        <form>
+          <input type="search" class="search-data" placeholder="Search" />
+          <button type="submit" class="bx bx-search" id="search"></button>
+        </form>
+      </nav>
+    </header>
+    <main>
+      <section class="main-title">
+        <button class="arrow-back-categories" id="arrow-back">
+          <i class="bx bx-chevron-left"></i>
+        </button>
+        <h1 class="main-title-index">
+          Explorer <span>Top Movies & TV Series</span> Around The World
+        </h1>
+
+        <p class="main-paragraph">From you phone at this website</p>
+
+        <h1 class="main-title-category inactive">Acción</h1>
+      </section>
+      <section class="slide-container" id="slider-container">
+        <!--<div class="slide">
 					<div class="slider-info">
 						<h1>Hola</h1>
 						<p>Lorem ipsum dolor.</p>
@@ -83,41 +85,35 @@
 						<img src="/img/1.jpg" alt="" />
 					</div>
 				</div>-->
-				
-				
-				<div class="navigation">
-					<span href="#" class="prev-btn" onclick="nextSlide(-1)">
-						<i class="bx bx-chevron-left arrow-prev"></i
-					></span>
-					<span href="#" class="next-btn" onclick="nextSlide(1)"
-						><i class="bx bx-chevron-right arrow-next"></i
-					></span>
-				
-				
-				
-				</div>
-			</section>
-			
-			
-			
-			<section id="trendingPreview" class="trendingPreview-container">
-				<div class="trend-container">
-					<div class="trend-title">
-						<h1>Trends🔥</h1>
-						<p>See our hot trends about all kind of content that you like</p>
-					</div>
-					<div class="control-carrusel">
-						<span href="#" class="prev" onclick="carruselPrev(0)">
-							<i class="bx bx-chevron-left arrow-prev"></i>
-						</span>
-						<span href="#" class="next" onclick="carruselNext(0)"
-							><i class="bx bx-chevron-right arrow-next"></i
-						></span>
-					</div>
-				</div>
 
-				<article class="trendingPreview-List" id="carrusel">
-					<!--<div class="trend-grid-container">
+        <div class="navigation">
+          <span href="#" class="prev-btn" onclick="nextSlide(-1)">
+            <i class="bx bx-chevron-left arrow-prev"></i
+          ></span>
+          <span href="#" class="next-btn" onclick="nextSlide(1)"
+            ><i class="bx bx-chevron-right arrow-next"></i
+          ></span>
+        </div>
+      </section>
+
+      <section id="trendingPreview" class="trendingPreview-container">
+        <div class="trend-container">
+          <div class="trend-title">
+            <h1>Trends🔥</h1>
+            <p>See our hot trends about all kind of content that you like</p>
+          </div>
+          <div class="control-carrusel">
+            <span href="#" class="prev" onclick="carruselPrev(0)">
+              <i class="bx bx-chevron-left arrow-prev"></i>
+            </span>
+            <span href="#" class="next" onclick="carruselNext(0)"
+              ><i class="bx bx-chevron-right arrow-next"></i
+            ></span>
+          </div>
+        </div>
+
+        <article class="trendingPreview-List" id="carrusel">
+          <!--<div class="trend-grid-container">
 						<img
 							class="trend-img"
 							src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
@@ -140,97 +136,97 @@
 							<button type="button"><a href="">Watch Now</a></button>
 						</div>
 					</div>-->
-				</article>
-				<div class="trend-container trend-container-movie" id="movie">
-					<div class="trend-title">
-						<h1>Movie🎥</h1>
-					</div>
-					<div class="control-carrusel">
-						<span href="#" class="prev" onclick="carruselPrev(1)">
-							<i class="bx bx-chevron-left arrow-prev"></i>
-						</span>
-						<span href="#" class="next" onclick="carruselNext(1)"
-							><i class="bx bx-chevron-right arrow-next"></i
-						></span>
-					</div>
-				</div>
+        </article>
+        <div class="trend-container trend-container-movie" id="movie">
+          <div class="trend-title">
+            <h1>Movie🎥</h1>
+          </div>
+          <div class="control-carrusel">
+            <span href="#" class="prev" onclick="carruselPrev(1)">
+              <i class="bx bx-chevron-left arrow-prev"></i>
+            </span>
+            <span href="#" class="next" onclick="carruselNext(1)"
+              ><i class="bx bx-chevron-right arrow-next"></i
+            ></span>
+          </div>
+        </div>
 
-				<article class="trendingPreview-List trend-movie" id="carrusel">
-					<div class="movie-container">
-						<div class="movie-container-info">
-							<img
-								src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-								class="movie-img"
-								alt="Nombre de la película"
-							/>
-							<div class="liked-container">
-								<button class="liked-btn"></button>
-							</div>
-						</div>
-					</div>
-				</article>
-				<div class="trend-container trend-container-serie" id="serie">
-					<div class="trend-title">
-						<h1>TV Series📺</h1>
-					</div>
-					<div class="control-carrusel">
-						<span href="#" class="prev" onclick="carruselPrev(2)">
-							<i class="bx bx-chevron-left arrow-prev"></i>
-						</span>
-						<span href="#" class="next" onclick="carruselNext(2)"
-							><i class="bx bx-chevron-right arrow-next"></i
-						></span>
-					</div>
-				</div>
-				<article class="trendingPreview-List trend-serie" id="carrusel">
-					<div class="serie-container">
-						<div class="serie-container-info">
-							<img
-								src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-								class="serie-img"
-								alt="Nombre de la película"
-							/>
-							<div class="liked-container">
-								<button class="liked-btn"></button>
-							</div>
-						</div>
-					</div>
-				</article>
+        <article class="trendingPreview-List trend-movie" id="carrusel">
+          <div class="movie-container">
+            <div class="movie-container-info">
+              <img
+                src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+                class="movie-img"
+                alt="Nombre de la película"
+              />
+              <div class="liked-container">
+                <button class="liked-btn"></button>
+              </div>
+            </div>
+          </div>
+        </article>
+        <div class="trend-container trend-container-serie" id="serie">
+          <div class="trend-title">
+            <h1>TV Series📺</h1>
+          </div>
+          <div class="control-carrusel">
+            <span href="#" class="prev" onclick="carruselPrev(2)">
+              <i class="bx bx-chevron-left arrow-prev"></i>
+            </span>
+            <span href="#" class="next" onclick="carruselNext(2)"
+              ><i class="bx bx-chevron-right arrow-next"></i
+            ></span>
+          </div>
+        </div>
+        <article class="trendingPreview-List trend-serie" id="carrusel">
+          <div class="serie-container">
+            <div class="serie-container-info">
+              <img
+                src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+                class="serie-img"
+                alt="Nombre de la película"
+              />
+              <div class="liked-container">
+                <button class="liked-btn"></button>
+              </div>
+            </div>
+          </div>
+        </article>
 
-				<div class="trend-container trend-container-fav" id="serie">
-					<div class="trend-title">
-						<h1>Favorites🌟</h1>
-					</div>
-					<div class="control-carrusel">
-						<span href="#" class="prev" onclick="carruselPrev(3)">
-							<i class="bx bx-chevron-left arrow-prev"></i>
-						</span>
-						<span href="#" class="next" onclick="carruselNext(3)"
-							><i class="bx bx-chevron-right arrow-next"></i
-						></span>
-					</div>
-				</div>
-				<article class="trendingPreview-List trend-fav" id="carrusel">
-					<div class="fav-container">
-						<div class="fav-container-info">
-							<img
-								src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-								class="fav-img"
-								alt="Nombre de la película"
-							/>
-							<div class="liked-container">
-								<button class="liked-btn"></button>
-							</div>
-						</div>
-					</div>
-				</article>
+        <div class="trend-container trend-container-fav" id="serie">
+          <div class="trend-title">
+            <h1>Favorites🌟</h1>
+          </div>
+          <div class="control-carrusel">
+            <span href="#" class="prev" onclick="carruselPrev(3)">
+              <i class="bx bx-chevron-left arrow-prev"></i>
+            </span>
+            <span href="#" class="next" onclick="carruselNext(3)"
+              ><i class="bx bx-chevron-right arrow-next"></i
+            ></span>
+          </div>
+        </div>
+        <article class="trendingPreview-List trend-fav" id="carrusel">
+          <div class="fav-container">
+            <div class="fav-container-info">
+              <img
+                src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+                class="fav-img"
+                alt="Nombre de la película"
+              />
+              <div class="liked-container">
+                <button class="liked-btn"></button>
+              </div>
+            </div>
+          </div>
+        </article>
 
-				<article class="categories-list">
-					<div class="category-title">
-						<h1>Categories 🧑‍💻</h1>
-					</div>
-					<div class="categories">
-						<!--	<div class="category-container">
+        <article class="categories-list">
+          <div class="category-title">
+            <h1>Categories 🧑‍💻</h1>
+          </div>
+          <div class="categories">
+            <!--	<div class="category-container">
 							<h3 id="id28" class="category-title">Romance</h3>
 						</div>
 
@@ -241,16 +237,12 @@
 						<div class="category-container">
 							<h3 id="id14" class="category-title">Acción</h3>
 						</div>-->
-					</div>
-				</article>
-			</section>
-			
-			
-			
-			
-			
-			<section class="category-view-container .container-serie inactive">
-				<!--<div class="category-view-item">
+          </div>
+        </article>
+      </section>
+
+      <section class="category-view-container .container-serie inactive">
+        <!--<div class="category-view-item">
 					<img
 						src="https://es.web.img2.acsta.net/pictures/21/12/01/12/07/0243323.jpg"
 						alt=""
@@ -260,9 +252,9 @@
 						<h3 class="category-view-year">2021</h3>
 					</div>
 				</div>-->
-			</section>
-			<section class="category-view-serie inactive">
-				<!--<div class="category-view-item">
+      </section>
+      <section class="category-view-serie inactive">
+        <!--<div class="category-view-item">
 					<img
 						src="https://es.web.img2.acsta.net/pictures/21/12/01/12/07/0243323.jpg"
 						alt=""
@@ -273,13 +265,15 @@
 						<h3 class="category-view-year">2021</h3>
 					</div>
 				</div>-->
-			</section>
-			<section class="overview-container inactive">
-				<button class="arrow-back" id="arrow-back">
-					<i class="bx bx-chevron-left"></i>
-				</button>
+      </section>
+    
+	
+	  <section class="overview-container inactive">
+        <button class="arrow-back" id="arrow-back">
+          <i class="bx bx-chevron-left"></i>
+        </button>
 
-				<!--	<div class="overview-header">
+        <!--	<div class="overview-header">
 					<div class="fade-bg"></div>
 					<img src="/img/1.jpg" alt="" class="bg-poster" />
 				</div>
@@ -302,24 +296,24 @@
 						</div>
 					</div>
 				</section>-->
-			</section>
+      </section>
 
-			<section class="similar-container inactive">
-				<div class="trend-container">
-					<div class="trend-title similar-title">
-						<h1>Similar🔥</h1>
-					</div>
-					<div class="control-carrusel similar-control">
-						<span href="#" class="prev" onclick="carruselPrev(3)">
-							<i class="bx bx-chevron-left arrow-prev"></i>
-						</span>
-						<span href="#" class="next" onclick="carruselNext(3)"
-							><i class="bx bx-chevron-right arrow-next"></i
-						></span>
-					</div>
-				</div>
-				<article class="trendingSimilar" id="carrusel">
-					<!--	<div class="trend-grid-container">
+      <section class="similar-container inactive">
+        <div class="trend-container">
+          <div class="trend-title similar-title">
+            <h1>Similar🔥</h1>
+          </div>
+          <div class="control-carrusel similar-control">
+            <span href="#" class="prev" onclick="carruselPrev(3)">
+              <i class="bx bx-chevron-left arrow-prev"></i>
+            </span>
+            <span href="#" class="next" onclick="carruselNext(3)"
+              ><i class="bx bx-chevron-right arrow-next"></i
+            ></span>
+          </div>
+        </div>
+        <article class="trendingSimilar" id="carrusel">
+          <!--	<div class="trend-grid-container">
 						<img
 							class="trend-img"
 							src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
@@ -342,15 +336,15 @@
 							<button type="button"><a href="">Watch Now</a></button>
 						</div>
 					</div>-->
-				</article>
-			</section>
-		</main>
-		<footer></footer>
-		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-		<script src="/src/app.js"></script>
-		<script src="/src/node.js"></script>
-		<script src="/src/utils.js"></script>
-		<script src="/src/main.js"></script>
-		<script src="/src/nav.js"></script>
-	</body>
+        </article>
+      </section>
+    </main>
+    <footer></footer>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/src/app.js"></script>
+    <script src="/src/node.js"></script>
+    <script src="/src/utils.js"></script>
+    <script src="/src/main.js"></script>
+    <script src="/src/nav.js"></script>
+  </body>
 </html>

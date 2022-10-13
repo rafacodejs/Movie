@@ -56,6 +56,9 @@ nav .nav-items ul {
 nav .nav-items ul li {
   list-style: none;
   padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 nav .nav-items ul li a {
   color: #fff;
@@ -143,9 +146,6 @@ nav .logo.space {
   color: var(--hover-color);
 }
 .main-title .main-paragraph {
-  display: block;
-  justify-content: start;
-  align-items: flex-start;
   font-size: 1.2rem;
   margin-top: 5px;
   color: var(--dimWhite);
@@ -541,7 +541,7 @@ nav .logo.space {
   transform: scale(1);
 }
 .category-view-item .category-view-item-info {
-  width: 200px;
+  width: 250px;
   height: 300px;
   position: absolute;
   display: flex;
@@ -578,17 +578,21 @@ nav .logo.space {
   margin: 0 auto;
   z-index: 100500;
 }
+
+/*OVERVIEW*/
+
 .overview-container {
   width: 100%;
-  height: auto;
+  position: relative;
+  top: 20px;
 }
 .overview-container .overview-header {
   height: 300px;
-  margin-top: -30px;
 }
 .overview-container .overview-header .bg-poster {
   height: 300px;
   object-position: center;
+  object-fit: cover;
 }
 .overview-header .fade-bg {
   width: 100%;
@@ -599,19 +603,17 @@ nav .logo.space {
   opacity: 0.5;
 }
 .overview-container-item {
-  width: 80%;
-  height: auto;
   display: flex;
+  justify-content: center;
   flex-direction: row;
   position: absolute;
-  top: 150px;
+  top: 70px;
   z-index: 20000;
-  margin: 0 auto;
 }
 .overview-container-item .overview-poster {
-  width: 50%;
-  height: auto;
-  margin-left: 50px;
+  max-width: 50%;
+  min-width: 30%;
+  margin-left: 60px;
 }
 .overview-container-item .overview-poster .poster {
   width: 300px;
@@ -621,8 +623,8 @@ nav .logo.space {
 }
 .overview-container-info {
   width: 100%;
-  height: auto;
-  margin-top: 10px;
+  position: relative;
+  left: -80px;
 }
 .overview-container-info .overview-title {
   margin-top: 15px;
@@ -630,13 +632,13 @@ nav .logo.space {
 .overview-container-info .overview-title .overview-main-title {
   color: var(--text-color);
   font-size: 2.4rem;
+  text-transform: uppercase;
   font-weight: 700;
   line-height: 2.4rem;
 }
 .overview-year-genres {
   display: flex;
   flex-direction: row;
-  margin-top: 20px;
 }
 .overview-year-genres .item-year,
 .overview-year-genres .item-genre {
@@ -646,17 +648,18 @@ nav .logo.space {
   margin-right: 15px;
 }
 .overview-container-info .overview-title .description {
-  width: 130%;
+  width: 97%;
   font-size: 1.2rem;
   color: var(--text-color);
   line-height: 1.5rem;
   margin-top: 10px;
+  text-align: justify;
 }
 .similar-container {
   width: 100%;
   height: auto;
   position: relative;
-  top: 100px;
+  top: 80px;
 }
 .similar-title h1 {
   position: relative;
@@ -670,11 +673,11 @@ nav .logo.space {
 }
 .trendingSimilar {
   position: relative;
-  top: 70px;
+  top: 100px;
   width: 93%;
   height: auto;
   margin: 0;
-  left: -15px;
+  left: -50px;
   display: flex;
   flex-direction: row;
   margin: 0 auto;
@@ -709,7 +712,7 @@ nav .logo.space {
 .inactive {
   display: none;
 }
-#loading {
+/*loading {
   position: fixed;
   top: 0;
   left: 0;

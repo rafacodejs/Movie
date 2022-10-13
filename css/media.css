@@ -61,6 +61,32 @@
     margin: 15px -50px;
     line-height: 1.2rem;
   }
+  .overview-container-info {
+    margin-left: -10px;
+  }
+  .overview-container-info .overview-title .overview-main-title {
+    width: 200px;
+    font-size: 1.5rem;
+  }
+  .overview-container-info .overview-title .description {
+    width: 175px;
+    font-size: 0.7rem;
+    line-height: 1.1rem;
+    margin-top: 0px;
+  }
+  .overview-year-genres .item-year,
+  .overview-year-genres .item-genre {
+    font-size: 1rem;
+    margin-right: 5px;
+  }
+  .similar-container {
+    top: 90px;
+  }
+}
+@media (max-width: 768px) {
+  .overview-container-item {
+    width: 100%;
+  }
 }
 
 @media (max-width: 980px) {
@@ -111,7 +137,6 @@
     overflow-x: auto;
     display: flex;
     scroll-snap-type: x mandatory;
-    margin-left: 15px;
   }
   .trend-grid-container {
     scroll-snap-align: start;
@@ -122,6 +147,25 @@
   .category-view-container {
     width: 80%;
     margin-left: 30px;
+  }
+  .overview-container-item .overview-poster {
+    margin-left: 20px;
+  }
+  .overview-container-item .overview-poster .poster {
+    width: 300px;
+    height: 250px;
+  }
+  .overview-container-info {
+    width: 100%;
+  }
+  .overview-container-info {
+    left: 20px;
+  }
+  .overview-container-info {
+    left: 20px;
+  }
+  .overview-container-info .overview-title .description {
+    width: 82%;
   }
 }
 @media (max-width: 900px) {
@@ -139,7 +183,7 @@
 @media (max-width: 1245px) {
   nav {
     padding: 0 50px;
-  }trend-title
+  }
 }
 @media (max-width: 1140px) {
   nav {
@@ -170,10 +214,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
   }
   nav .nav-items ul li {
-    line-height: 20px;
-    margin: 30px 0;
+    margin: 15px 0;
   }
   nav .nav-items ul li a {
     font-size: 20px;
