@@ -502,14 +502,14 @@ nav .logo.space {
 }
 .category-view-container,
 .category-view-serie {
-  width: 100%;
+  width: 85%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin-top: 50px;
-  
+
   gap: 20px;
 }
 .category-view-item {
@@ -661,31 +661,27 @@ nav .logo.space {
   width: 100%;
   height: auto;
   position: relative;
-  top: 80px;
+  top: 120px;
 }
 .similar-title h1 {
   position: relative;
   top: 120px;
-  left: 40px;
 }
 .similar-control {
   position: relative;
   top: 70px;
-  right: 50px;
+  right: 90px;
 }
 .trendingSimilar {
-  position: relative;
-  top: 100px;
-  width: 93%;
+  width: 90%;
   height: auto;
-  margin: 0;
-  left: -50px;
   display: flex;
   flex-direction: row;
-  margin: 0 auto;
-  overflow: hidden;
+  position: relative;
+  top: 70px;
   white-space: nowrap;
-  padding-bottom: 16px;
+  overflow: hidden;
+  padding-bottom: 20px;
   scroll-behavior: smooth;
 }
 .arrow-back {
@@ -701,7 +697,7 @@ nav .logo.space {
 }
 .arrow-back-categories {
   position: absolute;
-  left: 70px;
+  left: 60px;
   color: var(--text-color);
   z-index: 30000;
   cursor: pointer;
