@@ -32,7 +32,7 @@ Descubre las mejores películas, series, estrenos, y reviews en MovieLab. Proyec
         <img src="https://i.postimg.cc/rF6WrLjr/html.png" width="100%" />
       </td>
       <td>
-        <img src="https://i.postimg.cc/mgSDG9F2/css.png" width="100%" />
+        <img src="https://i.postimg.cc/mgSDG9F2/css.png" width="90%" />
       </td>
       <td>
         <img
