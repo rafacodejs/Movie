@@ -23,6 +23,7 @@ Descubre las mejores películas, series, estrenos, y reviews en MovieLab. Proyec
       <th>CSS</th>
       <th>JavaScript</th>
       <th>Axios</th>
+      <th>API</th>
     </tr>
   </thead>
   <tbody>
@@ -31,18 +32,19 @@ Descubre las mejores películas, series, estrenos, y reviews en MovieLab. Proyec
         <img src="https://i.postimg.cc/rF6WrLjr/html.png" width="100%" />
       </td>
       <td>
-        <img src="https://i.postimg.cc/mgSDG9F2/css.png" width="90%" />
+        <img src="https://i.postimg.cc/mgSDG9F2/css.png" width="100%" />
       </td>
       <td>
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png" width="50%" position="center" />
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png" width="100%"  />
       </td>
        <td>
-        <center>
-            <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Axios_%28computer_library%29_logo.svg/1280px-Axios_%28computer_library%29_logo.svg.png"
-                width="80%" />
-        </center>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Axios_%28computer_library%29_logo.svg/1280px-Axios_%28computer_library%29_logo.svg.png" width="100%" />
+      </td>
+       <td>
+        <img
+          src="https://postimg.cc/6y6736C3" width="100%" />
       </td>
     </tr>
   </tbody>
