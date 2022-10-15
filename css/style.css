@@ -1,10 +1,12 @@
 :root {
-  --main-color: #171a23;
+  --main-color: #04052d;
   --second-color: #1d202b;
-  --hover-color: #783ce3;
+  --hover-color: #ab42fd;
   --text-color: #fff;
   --dimWhite: rgba(255, 255, 255, 0.7);
 }
+/*--main-color: #130220;
+--hover-color: #ab42fd;*/
 body {
   background-color: var(--main-color);
 }
@@ -164,6 +166,9 @@ nav .logo.space {
   overflow: hidden;
   border-radius: 10px;
   scroll-behavior: smooth;
+  box-shadow: 28px 13px 74px -21px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 28px 13px 74px -21px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 28px 13px 74px -21px rgba(0, 0, 0, 0.75);
 }
 .slider-info {
   position: absolute;
@@ -359,12 +364,12 @@ nav .logo.space {
   margin-right: 0px;
   background-color: var(--second-color);
   border-radius: 12px;
-  box-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
+  box-shadow: 0px 5px 24px -5px rgba(0, 0, 0, 0.93);
 }
 .trend-grid-container .trend-img {
   max-width: 160px;
   width: 160px;
-  max-height: 180x;
+  max-height: 250px;
   height: 200px;
   border-radius: 8px;
   margin-top: 10px;
@@ -408,7 +413,7 @@ nav .logo.space {
 }
 .trend-info .rated i {
   font-size: 1rem;
-  color: var(--hover-color);
+  color: yellow;
   position: relative;
   top: 2px;
 }
@@ -486,10 +491,14 @@ nav .logo.space {
   background-color: var(--second-color);
   width: 180px;
   height: 50px;
-  margin-right: 10px;
+  margin-right: 15px;
   margin-top: 10px;
   border-radius: 12px;
   cursor: pointer;
+  transition: 0.4s;
+}
+.category-container:hover {
+  transform: scale(1.1);
 }
 .category-container:hover {
   background-color: var(--hover-color);
