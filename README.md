@@ -32,11 +32,11 @@ Descubre las mejores películas, series, estrenos, y reviews en MovieLab. Proyec
         <img src="https://i.postimg.cc/rF6WrLjr/html.png" width="100%" />
       </td>
       <td>
-        <img src="https://i.postimg.cc/mgSDG9F2/css.png" width="80%" />
+        <img src="https://i.postimg.cc/mgSDG9F2/css.png" width="85%" />
       </td>
       <td>
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/400px-Unofficial_JavaScript_logo_2.svg.png" width="100%"  />
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/300px-Unofficial_JavaScript_logo_2.svg.png" width="100%"  />
       </td>
        <td>
         <img
