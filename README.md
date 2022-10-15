@@ -44,7 +44,7 @@ Descubre las mejores películas, series, estrenos, y reviews en MovieLab. Proyec
       </td>
        <td>
         <img
-          src="https://postimg.cc/6y6736C3" width="100%" />
+          src="https://i.postimg.cc/4NVpWmdz/pngwing-com-1.png" width="100%" />
       </td>
     </tr>
   </tbody>
