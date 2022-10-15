@@ -36,11 +36,11 @@ Descubre las mejores películas, series, estrenos, y reviews en MovieLab. Proyec
       </td>
       <td>
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png" width="100%"  />
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/500px-Unofficial_JavaScript_logo_2.svg.png" width="100%"  />
       </td>
        <td>
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Axios_%28computer_library%29_logo.svg/1280px-Axios_%28computer_library%29_logo.svg.png" width="100%" />
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Axios_%28computer_library%29_logo.svg/500px-Axios_%28computer_library%29_logo.svg.png" width="100%" />
       </td>
        <td>
         <img
