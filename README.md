@@ -2,10 +2,9 @@
 
 [![MovieLab](https://i.postimg.cc/rs3S0TzN/Movie-Lab-cover.png)](https://themovielab.netlify.app/)
 
-
 ## 📜 Resumen 📜
 
-Descubre las mejores películas, series, estrenos, y reviews en MovieLab. Proyecto construido con la API de TheMovieBD, utilizando las async functions de JavaScript, manipulación de DOM, navegación de una SPA y slider automáticos. 
+Descubre las mejores películas, series, estrenos, y reviews en MovieLab. Proyecto construido con la API de TheMovieBD, utilizando las async functions de JavaScript, manipulación de DOM, navegación de una SPA y slider automáticos.
 
 ## 💻 Si quieres ver el código en tu computadora solo debes hacer esta instalación 💻
 
@@ -36,12 +35,12 @@ Descubre las mejores películas, series, estrenos, y reviews en MovieLab. Proyec
       </td>
       <td>
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png" width="60%" />
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png" width="50%" position="center" />
       </td>
        <td>
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Axios_%28computer_library%29_logo.svg/1280px-Axios_%28computer_library%29_logo.svg.png"
-          width="60%" />
+          width="80%" />
       </td>
     </tr>
   </tbody>
