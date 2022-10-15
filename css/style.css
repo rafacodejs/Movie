@@ -1,6 +1,6 @@
 :root {
-  --main-color: #04052d;
-  --second-color: #1d202b;
+  --main-color: #282c34;
+  --second-color: #20232a;
   --hover-color: #ab42fd;
   --text-color: #fff;
   --dimWhite: rgba(255, 255, 255, 0.7);
@@ -350,7 +350,7 @@ nav .logo.space {
   overflow-y: hidden;
   white-space: nowrap;
   width: 100%;
-  height: auto;
+  height: 300px;
   scroll-behavior: smooth;
 }
 .trend-grid-container {
