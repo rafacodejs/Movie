@@ -1,6 +1,7 @@
 # [MovieLab](https://themovielab.netlify.app/) | [<img src="https://i.postimg.cc/5NBMxTJX/github.png" alt="GitHub" height="20px"/>](https://github.com/rafacodejs) | [<img src="https://i.postimg.cc/J7BLFtdc/linkedin.png" alt="Linkedin" height="20px"/>](https://www.linkedin.com/in/rafacodejs/) | [<img src="https://i.postimg.cc/65TVxg9t/world-globe.png" alt="Portafolio Web" height="20px"/>](#)
 
-[![MovieLab](https://postimg.cc/GTPBVZF4)](https://themovielab.netlify.app/)
+[![MovieLab](https://i.postimg.cc/rs3S0TzN/Movie-Lab-cover.png)](https://themovielab.netlify.app/)
+
 
 ## 📜 Resumen 📜
 
@@ -31,16 +32,16 @@ Descubre las mejores películas, series, estrenos, y reviews en MovieLab. Proyec
         <img src="https://i.postimg.cc/rF6WrLjr/html.png" width="100%" />
       </td>
       <td>
-        <img src="https://i.postimg.cc/mgSDG9F2/css.png" width="100%" />
+        <img src="https://i.postimg.cc/mgSDG9F2/css.png" width="90%" />
       </td>
       <td>
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png" width="100%" />
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png" width="60%" />
       </td>
        <td>
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Axios_%28computer_library%29_logo.svg/1280px-Axios_%28computer_library%29_logo.svg.png"
-          width="100%" />
+          width="60%" />
       </td>
     </tr>
   </tbody>
