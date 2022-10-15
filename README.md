@@ -38,9 +38,11 @@ Descubre las mejores películas, series, estrenos, y reviews en MovieLab. Proyec
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png" width="50%" position="center" />
       </td>
        <td>
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Axios_%28computer_library%29_logo.svg/1280px-Axios_%28computer_library%29_logo.svg.png"
-          width="80%" />
+        <center>
+            <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Axios_%28computer_library%29_logo.svg/1280px-Axios_%28computer_library%29_logo.svg.png"
+                width="80%" />
+        </center>
       </td>
     </tr>
   </tbody>
