@@ -36,7 +36,7 @@ Descubre las mejores películas, series, estrenos, y reviews en MovieLab. Proyec
       </td>
       <td>
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/500px-Unofficial_JavaScript_logo_2.svg.png" width="100%"  />
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/300px-Unofficial_JavaScript_logo_2.svg.png" width="100%"  />
       </td>
        <td>
         <img
