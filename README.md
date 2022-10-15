@@ -10,7 +10,7 @@ Descubre las mejores películas, series, estrenos, y reviews en MovieLab. Proyec
 
 - Ubicarse en la carpeta que contendrá el proyecto
 - Abrir terminal de comandos
-  - git https://github.com/rafacodejs/MovieWeb.git
+  - git https://github.com/rafacodejs/MovieLab.git
   - cd cineverse
   - Abrir tu editor de código
 
