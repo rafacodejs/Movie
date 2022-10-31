@@ -1,4 +1,4 @@
-# [MovieLab](https://themovielab.netlify.app/) | [<img src="https://i.postimg.cc/5NBMxTJX/github.png" alt="GitHub" height="20px"/>](https://github.com/rafacodejs) | [<img src="https://i.postimg.cc/J7BLFtdc/linkedin.png" alt="Linkedin" height="20px"/>](https://www.linkedin.com/in/rafacodejs/) | [<img src="https://i.postimg.cc/65TVxg9t/world-globe.png" alt="Portafolio Web" height="20px"/>](#)
+# [MovieLab](https://themovielab.netlify.app/) | [<img src="https://i.postimg.cc/5NBMxTJX/github.png" alt="GitHub" height="20px"/>](https://github.com/rafacodejs) | [<img src="https://i.postimg.cc/J7BLFtdc/linkedin.png" alt="Linkedin" height="20px"/>](https://www.linkedin.com/in/rafacodejs/) | [<img src="https://i.postimg.cc/65TVxg9t/world-globe.png" alt="Portafolio Web" height="20px"/>](https://rafaelmalpica.netlify.app/)
 
 [![Movie-Lab-cover.jpg](https://i.postimg.cc/tC9S126x/Movie-Lab-cover.jpg)](https://themovielab.netlify.app/)
 
@@ -10,7 +10,7 @@ Descubre las mejores películas, series, estrenos, y reviews en MovieLab. Proyec
 
 - Ubicarse en la carpeta que contendrá el proyecto
 - Abrir terminal de comandos
-  - git https://github.com/rafacodejs/MovieLab.git
+  - git clone https://github.com/rafacodejs/MovieLab.git
   - cd MovieLab
   - Abrir tu editor de código
 
